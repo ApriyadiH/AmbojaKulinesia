@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "../pages/Homepage";
 import Detail from "../pages/Detail";
 import ListRating from "../pages/ListRating";
 import ListRegion from "../pages/ListRegion";
