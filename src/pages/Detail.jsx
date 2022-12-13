@@ -4,16 +4,16 @@ import React from "react";
 // Import Components
 import Navbar from '../components/general/Navbar';
 import Searchbox from '../components/general/Searchbox';
-import FoodListRegion from '../components/general/FoodListRegion';
+import Detail from '../components/general/Detail';
 
-function ListRegionPage() {
+function DetailPage() {
   return (
     <div>
       <Navbar/>
       <Searchbox/>
-      <FoodListRegion/>
+      <Detail/>
     </div>
   );
 }
 
-export default ListRegionPage;
+export default DetailPage;

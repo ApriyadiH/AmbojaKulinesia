@@ -3,12 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import React from "react";
 
-const Navbar = () => {
+const Detail = () => {
   return (
     <div className="container">
-        <h1>Navbar</h1>
+        <h1>Detail</h1>
     </div>
   );
 };
 
-export default Navbar;
+export default Detail;
