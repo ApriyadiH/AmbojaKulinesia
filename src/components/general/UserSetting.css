@@ -1,0 +1,37 @@
+.userinfo-container {
+    width: 45%;
+    padding: 20px 30px;
+    margin: auto;
+}
+
+.header-cntr {
+    margin-top: 50px;
+    background-color: #6d6d6d;
+    border-radius: 15px 15px 0px 0px;
+    color: white
+}
+
+.content-cntr {
+    background-color: #ececec;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.userinfo {
+    align-items: center;
+    margin-top: 15px;
+}
+
+.userinfo label {
+    font-weight: bold;
+}
+
+.userinfo-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reset-pass {
+    margin: 30px 0px 15px;
+}
