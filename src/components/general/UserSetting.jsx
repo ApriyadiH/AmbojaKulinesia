@@ -124,41 +124,39 @@ const UserSetting = () => {
             </div>
 
             <div className='userinfo-container content-cntr' id='myprofile'>
-                <div >
-                    <div className='userinfo row'>
-                        <label className='col-2'>Username</label>
-                        <div className='col-10 userinfo-btn' id='username'>
-                            <div>{username}</div>
-                            <div>
-                                <button className='btn btn-secondary' onClick={editUsername}>Edit</button>
-                            </div>
-                        </div>
-                        <div className='col-10 userinfo-btn' id='username-edit' style={{ 'display': 'none' }}>
-                            <input value={username} className='userinfo-input' onChange={onChangeUsername} />
-                            <div>
-                                <button className='btn btn-danger' onClick={cancelEditUsername}>Cancel</button>
-                                <button className='btn btn-primary' onClick={saveNewUsername}>Save</button>
-                            </div>
+                <div className='userinfo row'>
+                    <label className='col-2'>Username</label>
+                    <div className='col-10 userinfo-btn' id='username'>
+                        <div>{username}</div>
+                        <div>
+                            <button className='btn btn-secondary' onClick={editUsername}>Edit</button>
                         </div>
                     </div>
-                    <div className='userinfo row'>
-                        <label className='col-2'>Email</label>
-                        <div className='col-10 userinfo-btn' id='email'>
-                            <div>{email}</div>
-                            <div>
-                                <button className='btn btn-secondary' onClick={editEmail}>Edit</button>
-                            </div>
-                        </div>
-                        <div className='col-10 userinfo-btn' id='email-edit' style={{ 'display': 'none' }}>
-                            <input type='email' value={email} className='userinfo-input' onChange={onChangeEmail} />
-                            <div>
-                                <button className='btn btn-danger' onClick={cancelEditEmail}>Cancel</button>
-                                <button className='btn btn-primary' onClick={saveNewEmail}>Save</button>
-                            </div>
+                    <div className='col-10 userinfo-btn' id='username-edit' style={{ 'display': 'none' }}>
+                        <input value={username} className='userinfo-input' onChange={onChangeUsername} />
+                        <div>
+                            <button className='btn btn-danger' onClick={cancelEditUsername}>Cancel</button>
+                            <button className='btn btn-primary' onClick={saveNewUsername}>Save</button>
                         </div>
                     </div>
-                    <button className='btn btn-secondary reset-pass' onClick={resetPass}>Reset Password</button>
                 </div>
+                <div className='userinfo row'>
+                    <label className='col-2'>Email</label>
+                    <div className='col-10 userinfo-btn' id='email'>
+                        <div>{email}</div>
+                        <div>
+                            <button className='btn btn-secondary' onClick={editEmail}>Edit</button>
+                        </div>
+                    </div>
+                    <div className='col-10 userinfo-btn' id='email-edit' style={{ 'display': 'none' }}>
+                        <input type='email' value={email} className='userinfo-input' onChange={onChangeEmail} />
+                        <div>
+                            <button className='btn btn-danger' onClick={cancelEditEmail}>Cancel</button>
+                            <button className='btn btn-primary' onClick={saveNewEmail}>Save</button>
+                        </div>
+                    </div>
+                </div>
+                <button className='btn btn-secondary reset-pass' onClick={resetPass}>Reset Password</button>
             </div>
 
             <div className='userinfo-container content-cntr respass-cntr' id='resetpass' style={{ 'display': 'none' }}>
