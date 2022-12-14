@@ -124,6 +124,8 @@ const StCardContainer = styled.div`
   border: 0px;
   background-Color: #ececec;
   padding:  10px 10px 10px;
+  height: 70vh;
+  overflow-y: scroll;
 
   display:flex;
   flex-direction:column;
