@@ -21,7 +21,7 @@
     margin-top: 15px;
 }
 
-.userinfo label {
+.userinfo-container label {
     font-weight: bold;
 }
 
@@ -32,6 +32,65 @@
     justify-content: space-between;
 }
 
+.userinfo-btn div button {
+    margin-left: 10px;
+}
+
+.userinfo-input {
+    width: 55%;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+.userinfo-input:focus {
+    outline-color: #6d6d6d;
+}
+
 .reset-pass {
     margin: 30px 0px 15px;
 }
+
+.respass-cntr {
+    display: flex;
+    flex-direction: column;
+}
+
+.respass {
+    margin: 15px 0px;
+}
+
+.respass-input {
+    width: 85%;
+    outline: none;
+    border: none;
+}
+
+.respass-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin: 25px 0px 15px 0px;
+}
+
+.pass-input {
+    width: 52%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 20px 4px 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.pass-input:focus-within {
+    border: 2px solid #6d6d6d;
+}
+
+.pass-input i {
+    font-size: 20px;
+}
+
+.pass-input i:hover {
+    cursor: pointer;
+}
+
