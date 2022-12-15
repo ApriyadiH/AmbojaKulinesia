@@ -5,8 +5,9 @@ import 'bootstrap/dist/js/bootstrap.js';
 
 // import component
 import Navbar from "../components/general/Navbar";
-import UserRequestList from "../components/general/UserRequestList";
 import AddPost from "../components/general/AddPost";
+import UserRequestList from "../components/general/UserRequestList";
+import EditPost from "../components/general/EditPost";
 
 const UserRequest = () => {
     return (
@@ -18,6 +19,7 @@ const UserRequest = () => {
                 </div>
                 <div className="col">
                     <AddPost />
+                    <EditPost />
                 </div>
             </div>
         </div>
