@@ -23,12 +23,98 @@ const FoodListRating = () => {
 
   return (
     <StContainer className="container-fluid">
-      <StTitle>
-        Best Culinary from Indonesia
-      </StTitle>
+      <StCardTitle>
+        <StTitle>
+          Best Culinary from Indonesia
+        </StTitle>
+      </StCardTitle>
       <StCardContainer>
-        <StCard className="card">
-          <StCardElement width="40%">
+        <StScrollBar>
+        <StCard className="container-fluid">
+          <div className="row g-0">
+            <StCarousel className="col g-0">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga iste nemo facere accusamus exercitationem molestiae sapiente nam voluptatum ab, quasi nesciunt voluptate magni, voluptates repellendus eveniet dolorem, repellat perspiciatis. Sunt?
+            </StCarousel>
+            <StNameLikes className="col g-1">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, alias voluptate? Officiis dolore eligendi error nihil dolorum earum fuga tempora in voluptatibus odit itaque vitae laboriosam neque ullam, nobis voluptatem.
+            </StNameLikes>
+            <StDescription className="col g-2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quos ex at, aperiam praesentium atque delectus eos maiores dolor similique soluta ducimus architecto alias amet doloribus inventore iste labore veritatis?
+            </StDescription>
+          </div>
+        </StCard>
+        </StScrollBar>
+      </StCardContainer>
+    </StContainer>
+  );
+};
+
+export default FoodListRating;
+
+const StContainer = styled.div`
+  padding:  10px 20px 10px  ;
+`
+
+const StCardTitle = styled.div`
+  margin-top: 20px;
+  padding: 20px 30px;
+  background-color: #6d6d6d;
+  border-radius: 15px 15px 0px 0px;
+  color: white;
+  font-weight: bold;
+`
+
+const StTitle = styled.h4`
+  padding: 10px;
+  font-size: calc(1.275rem + 0.3vw);
+`
+
+const StCardContainer = styled.div`
+  border: 0px;
+  background-Color: #ececec;
+  padding:  10px 10px 10px;
+  border-radius: 0px 0px 15px 15px;
+`
+
+const StScrollBar = styled.div`
+  height: 70vh;
+  overflow-y: scroll;
+`
+
+const StCard = styled.div`
+  border: 0px;
+  background-Color: #ececec;
+  padding:  10px 10px 10px;
+
+  display:flex;
+  flex-direction:row;
+`
+
+const StCarousel = styled.div`
+  width: 600px;
+`
+
+const StCarouselImage = styled.img`
+  height: 400px;
+  object-fit: cover; 
+`
+
+const StNameLikes = styled.div`
+  width: 10%;
+  display:flex;
+  flex-direction:column;
+`
+
+const StDescription = styled.div`
+  width: 50%;
+`
+
+
+
+
+{/* <StCard className="container-fluid">
+          <div className="row"></div>
+          <StCardElement className="col" width="40%">
             <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
@@ -51,7 +137,7 @@ const FoodListRating = () => {
               </button>
             </div>
           </StCardElement>
-          <StCardElement width="10%">
+          <StCardElement className="col" width="10%">
             <StNameLikes>
               <div>
                 <h5>Pempek</h5>
@@ -62,7 +148,7 @@ const FoodListRating = () => {
               </div>
             </StNameLikes>
           </StCardElement>
-          <StCardElement width="50%">
+          <StCardElement className="col" width="50%">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa in corporis animi quisquam exercitationem cupiditate, porro earum dicta adipisci aspernatur saepe voluptas praesentium quod amet. Aperiam dolores voluptates nostrum inventore.
           </StCardElement>
         </StCard>
@@ -104,53 +190,4 @@ const FoodListRating = () => {
           <StCardElement width="50%">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa in corporis animi quisquam exercitationem cupiditate, porro earum dicta adipisci aspernatur saepe voluptas praesentium quod amet. Aperiam dolores voluptates nostrum inventore.
           </StCardElement>
-        </StCard>
-      </StCardContainer>
-    </StContainer>
-  );
-};
-
-export default FoodListRating;
-
-const StContainer = styled.div`
-  padding:  10px 20px 10px  ;
-`
-
-const StTitle = styled.h4`
-  padding: 10px;
-  font-size: calc(1.275rem + 0.3vw);
-`
-const StCardContainer = styled.div`
-  border: 0px;
-  background-Color: #ececec;
-  padding:  10px 10px 10px;
-  height: 70vh;
-  overflow-y: scroll;
-
-  display:flex;
-  flex-direction:column;
-`
-
-const StCard = styled.div`
-  border: 0px;
-  background-Color: #ececec;
-  padding:  10px 10px 10px;
-
-  display:flex;
-  flex-direction:row;
-`
-
-const StCardElement = styled.div`
-  width: ${props => props.width};
-  padding:  10px 10px 10px;
-`
-
-const StCarouselImage = styled.img`
-  height: 400px;
-  object-fit: cover; 
-`
-
-const StNameLikes = styled.div`
-  display:flex;
-  flex-direction:column;
-`
+        </StCard> */}
