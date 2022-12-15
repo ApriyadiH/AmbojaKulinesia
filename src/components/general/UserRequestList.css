@@ -1,0 +1,98 @@
+.userRequest-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto 30px auto;
+}
+
+.userRequest-header {
+    width: 95%;
+    background-color: #6d6d6d;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.userRequest-body {
+    width: 95%;
+    background-color: #ececec;
+    padding: 30px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.approved {
+    max-height: 38vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.pending {
+    max-height: 38vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.rejected {
+    max-height: 38vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.approved-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.status-box {
+    padding: 5px 10px;
+    background-color: #d1d1d1;
+    font-size: 18px;
+}
+
+.bi-check-lg {
+    color: #0275d8;
+}
+
+.content-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    background-color: #d1d1d1;
+    padding: 5px 20px;
+    font-weight: 500;
+}
+
+.content-row div {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.bi-trash:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.bi-pencil-square:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.bi-x-lg {
+    color: red;
+}

@@ -23,7 +23,7 @@
 }
 
 .addpost-body div label {
-    font-weight: bold;
+    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -58,6 +58,14 @@
     margin-right: 15px;
 }
 
+.imgurl {
+    width: 75%;
+    margin-right: 15px;
+    border: none;
+    padding: 5px 10px;
+    background-color: #d1d1d1;
+}
+
 .img-col i {
     font-size: 24px;
 }
@@ -74,4 +82,14 @@
 .submit-btn {
     margin: 5px auto;
     width: 90%;
+}
+
+.editpost-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.save-btn {
+    margin: 5px auto;
+    width: 45%;
 }
