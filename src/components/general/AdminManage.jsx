@@ -6,36 +6,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import styled from "styled-components";
 
-const Detail = () => {
+const AdminManage = () => {
   return (
     <StContainer>      
-      <StDetail>
+      <StSearch>
+        <h1>Search box</h1>
+      </StSearch>
+      <StDetail> 
         <StTitle>
           Judul
         </StTitle>
-        <div>
-        <div id="carouselExampleInterval" className="carousel slide mx-10git " data-bs-ride="carousel">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <StCarouselImage src="https://tse4.mm.bing.net/th?id=OIP.YEN0T1YzBxntg4MXQtI3dwHaFj&pid=Api" alt="pempek"/>
-            </div>
-            <div className="carousel-item">
-              <StCarouselImage src="https://tse3.mm.bing.net/th?id=OIP.FWKSUCBrg6AsIlzUNFQPVwHaEv&pid=Api" alt="pempek"/>
-            </div>
-            <div className="carousel-item">
-              <StCarouselImage src="https://tse2.mm.bing.net/th?id=OIP.8pjBGLyv9B-DL9PPl1aFFQHaFZ&pid=Api" alt="pempek"/>
-            </div>
-          </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
+        <StImage src="https://tse4.mm.bing.net/th?id=OIP.YEN0T1YzBxntg4MXQtI3dwHaFj&pid=Api" alt="pempek"/>
         <div className="d-flex direction-row">
           <i className="bi bi-heart-fill mx-2" style={{color:"red"}}></i>
           <p>Likes</p>
@@ -132,7 +113,7 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default AdminManage;
 
 const StContainer = styled.div`
   padding:  10px 20px 10px  ;
@@ -154,10 +135,10 @@ const StTitle = styled.h4`
   font-size: calc(1.275rem + 0.3vw);
 `
 
-const StCarouselImage = styled.img`
-  width: 80%;
+const StImage = styled.img`
   margin-left: 10%;
   padding-bottom: 20px;
+  width: 80%;
   max-height: 300px;
   object-fit: cover; 
 `

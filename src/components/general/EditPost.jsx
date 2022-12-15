@@ -2,92 +2,104 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import React, { useEffect, useState } from "react";
 import nextId from "react-id-generator";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { cancelEdit, deleteUrl, saveEdit } from '../../redux/modules/editPostSlice';
 import './AddPost.css';
 
-const AddPost = () => {
-    const imgUrlInputId = nextId();
-    const [imageUrl, setImageUrl] = useState('');
+const EditPost = () => {
+    const imgUrlId = nextId();
+    const dispatch = useDispatch();
 
-    const [images, setImages] = useState([]);
+    const {
+        postId,
+        foodName,
+        region,
+        imageUrls,
+        description,
+        editpostDisplay
+    } = useSelector((state) => state.editPost);
 
-    const [foodPosts, setFoodPosts] = useState({
+    const [posts, setPosts] = useState({
         region: '',
         foodName: '',
+        imageUrl: '',
         description: ''
     });
 
-    const { addpostDisplay } = useSelector((state) => state.editPost);
+    const imageUrlList = imageUrls.slice(1);
+    const [imageList, setImageList] = useState([]);
 
     const display = () => {
-        document.getElementById("addpost").style.display = addpostDisplay;
+        document.getElementById("editpost").style.display = editpostDisplay;
     };
 
     useEffect(() => {
         display()
-    });
+    })
 
-    const onChangeImgUrl = (event) => {
-        setImageUrl(event.target.value);
+    useEffect(() => {
+        setPosts({
+            region: region,
+            foodName: foodName,
+            imageUrl: imageUrls[0].imageUrl,
+            description: description
+        })
+    }, [region, foodName, imageUrls, description]);
+
+    const onChangeValue = (event) => {
+        const { name, value } = event.target;
+        setPosts({ ...posts, [name]: value })
+    };
+
+    const deleteImgUrl = (id) => {
+        dispatch(deleteUrl(id))
     };
 
     const addImageInput = () => {
-        setImages([...images, { id: imgUrlInputId, imgUrl: '' }]);
+        setImageList([...imageList, { id: imgUrlId, imgUrl: '' }]);
     };
 
-    const reduceImageInput = (id) => {
-        let newImgs = images.filter((img) => (img.id !== id));
-        setImages(newImgs);
+    const reduceImageUrl = (id) => {
+        let newImgs = imageList.filter((img) => (img.id !== id));
+        setImageList(newImgs);
     };
 
-    const handleChange = (event, id) => {
-        let updateImageUrl = images.filter((img) => {
+    const handleUrlChange = (event, id) => {
+        let updateImageUrl = imageList.filter((img) => {
             if (img.id === id) {
                 img.imgUrl = event.target.value
             }
             return img
         });
-        setImages(updateImageUrl);
+        setImageList(updateImageUrl);
     };
 
-    let imageUrls = [imageUrl];
-    for (const img of images) {
-        imageUrls = [...imageUrls, img.imgUrl]
-    }
-
-    const onChangeHandler = (event) => {
-        const { name, value } = event.target;
-        setFoodPosts({ ...foodPosts, [name]: value })
+    let UrlList = [];
+    for (const url of imageUrls) {
+        UrlList = [...UrlList, url.imageUrl]
+    };
+    for (const url of imageList) {
+        UrlList = [...UrlList, url.imgUrl]
     };
 
-    // const requestData = {...foodPosts, imageUrls: imageUrls};
-
-    const submitHandler = () => {
-        // axios post ke tabel FoodPost dan images pakai data requestData
-        setImageUrl('');
-        setImages([]);
-        setFoodPosts({
-            region: '',
-            foodName: '',
-            description: ''
-        })
+    const saveEditPost = () => {
+        // axios put disini
+        dispatch(saveEdit())
     };
 
-    // testing
-    // console.log(foodPosts);
-    // console.log('images', images);
-    // console.log('imageUrls', imageUrls);
-    // console.log(requestData);
+    const cancelEditPost = () => {
+        dispatch(cancelEdit())
+    };
 
     return (
-        <div className='addpost-container' id='addpost'>
+        <div className='addpost-container' id='editpost'>
             <div className='addpost-header'>
-                <h5>Add Culinary</h5>
+                <h5>Edit Culinary</h5>
             </div>
-            <form className='addpost-body' onSubmit={submitHandler}>
+            <form className='addpost-body'>
                 <div className='row'>
                     <label className='col-4'>Region</label>
-                    <select className='col-8 select-region' name='region' value={foodPosts.region} onChange={onChangeHandler}>
+                    <select className='col-8 select-region' name='region' value={posts.region} onChange={onChangeValue}>
                         <option defaultValue>Choose Region...</option>
                         <option value='Aceh'>Aceh</option>
                         <option value='Bali'>Bali</option>
@@ -127,22 +139,45 @@ const AddPost = () => {
                 </div>
                 <div className='row'>
                     <label className='col-4'>Culinary Name</label>
-                    <input className='col-8 addpost-input' name="foodName" value={foodPosts.foodName} onChange={onChangeHandler} required />
+                    <input className='col-8 addpost-input' name="foodName" value={posts.foodName} onChange={onChangeValue} required />
                 </div>
                 <div>
                     <div className='row'>
                         <label className='col-4'>Image</label>
                         <div className='col-8 img-col'>
-                            <input className='addpost-input img-input' placeholder='Put image URL here' value={imageUrl} onChange={onChangeImgUrl} required />
+                            <input
+                                className='addpost-input img-input'
+                                placeholder='Put image URL here'
+                                name="imageUrl"
+                                value={posts.imageUrl}
+                                onChange={onChangeValue}
+                                required
+                            />
                             <i className="bi bi-plus-circle-fill" onClick={addImageInput}></i>
                         </div>
                     </div>
-                    {images.map((img) => (
+                    {imageUrlList.map((img) => (
+                        <div className='row additional-imgurl' key={`id-${img.imageId}`}>
+                            <label className='col-4'>Image</label>
+                            <div className='col-8 img-col'>
+                                <div className='imgurl'>{img.imageUrl}</div>
+                                <i className="bi bi-dash-circle-fill" onClick={() => { deleteImgUrl(img.imageId) }}></i>
+                            </div>
+                        </div>
+                    )
+                    )}
+                    {imageList.map((img) => (
                         <div className='row additional-imgurl' key={`id-${img.id}`}>
                             <label className='col-4'>Image</label>
                             <div className='col-8 img-col'>
-                                <input className='addpost-input img-input' placeholder='Put image URL here' value={img.imgUrl} onChange={event => handleChange(event, img.id)} required />
-                                <i className="bi bi-dash-circle-fill" onClick={() => { reduceImageInput(img.id) }}></i>
+                                <input 
+                                className='addpost-input img-input' 
+                                placeholder='Put image URL here' 
+                                value={img.imgUrl} 
+                                onChange={event => handleUrlChange(event, img.id)} 
+                                required 
+                                />
+                                <i className="bi bi-dash-circle-fill" onClick={() => { reduceImageUrl(img.id) }}></i>
                             </div>
                         </div>
                     )
@@ -150,12 +185,15 @@ const AddPost = () => {
                 </div>
                 <div className='row'>
                     <label className='col-4'>Description</label>
-                    <textarea className='col-8 addpost-input' rows='4' name="description" value={foodPosts.description} onChange={onChangeHandler} required />
+                    <textarea className='col-8 addpost-input' rows='4' name="description" value={posts.description} onChange={onChangeValue} required />
                 </div>
-                <button type='submit' className='btn btn-primary submit-btn'>Submit</button>
+                <div className='editpost-btn'>
+                    <div className='btn btn-danger save-btn' onClick={cancelEditPost}>Cancel</div>
+                    <button type='submit' className='btn btn-primary save-btn' onClick={saveEditPost}>Save</button>
+                </div>
             </form>
         </div>
     )
 };
 
-export default AddPost;
+export default EditPost;
