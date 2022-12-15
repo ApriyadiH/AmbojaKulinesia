@@ -5,8 +5,9 @@ import 'bootstrap/dist/js/bootstrap.js';
 
 // import component
 import Navbar from "../components/general/Navbar";
-import AdminPostsLists from "../components/general/AdminPostLists";
-import AddPost from "../components/general/AddPost";
+import AdminPostsLists from "../components/postRequest/AdminPostLists";
+import AddPost from "../components/postRequest/AddPost";
+import EditPost from "../components/postRequest/EditPost";
 
 const AdminPost = () => {
     return (
@@ -18,6 +19,7 @@ const AdminPost = () => {
                 </div>
                 <div className="col">
                     <AddPost />
+                    <EditPost />
                 </div>
             </div>
         </div>
