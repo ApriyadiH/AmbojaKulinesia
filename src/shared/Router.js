@@ -18,8 +18,8 @@ import Register from "../pages/Register";
 const Router = () => {
   return (
     <>
-      <Navbar/>
       <BrowserRouter>
+      <Navbar/>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="Food/detail/:id" element={<Detail />} />
@@ -31,7 +31,6 @@ const Router = () => {
           <Route path="Admin/request" element={<AdminRequest />} />
           <Route path="Login" element={<Login />} />
           <Route path="Register" element={<Register />} />
-          <Route path="/" element={<Homepage />} />
           <Route path="Test" element={<Test />} />
         </Routes>
       </BrowserRouter>
