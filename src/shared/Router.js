@@ -8,6 +8,8 @@ import UserSettings from "../pages/UserSettings";
 import UserRequest from "../pages/UserRequest";
 import AdminPost from "../pages/AdminPost";
 import AdminRequest from "../pages/AdminRequest";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const Router = () => {
   return (
@@ -21,6 +23,9 @@ const Router = () => {
         <Route path="User/request" element={<UserRequest />} />
         <Route path="Admin/post" element={<AdminPost />} />
         <Route path="Admin/request" element={<AdminRequest />} />
+        <Route path="Login" element={<Login />} />
+        <Route path="Register" element={<Register />} />
+
       </Routes>
     </BrowserRouter>
   );
