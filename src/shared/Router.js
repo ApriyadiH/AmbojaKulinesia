@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Navbar from "../components/general/Navbar";
+import Test from "../components/Test";
 
 import Homepage from "../pages/Homepage";
 import Detail from "../pages/Detail";
@@ -24,6 +25,7 @@ const Router = () => {
           <Route path="User/setting" element={<UserSettings />} />
           <Route path="User/request" element={<UserRequest />} />
           <Route path="Admin/post" element={<AdminPost />} />
+          <Route path="Test" element={<Test />} />
         </Routes>
       </BrowserRouter>
     </>
