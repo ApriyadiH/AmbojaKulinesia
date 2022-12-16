@@ -4,10 +4,7 @@ const initialState = {
     postId: '',
     foodName: '',
     region: '',
-    imageUrls: [{
-        imageId: '',
-        imageUrl: ''
-    }],
+    imageUrls: [],
     description: '',
     addpostDisplay: 'flex',
     editpostDisplay: 'none',
@@ -30,10 +27,7 @@ const editpostSlice = createSlice({
             state.postId = '';
             state.foodName = '';
             state.region = '';
-            state.imageUrls = [{
-                imageId: '',
-                imageUrl: ''
-            }];
+            state.imageUrls = [];
             state.description = '';
             state.addpostDisplay = 'flex';
             state.editpostDisplay = 'none';
@@ -42,16 +36,13 @@ const editpostSlice = createSlice({
             state.postId = '';
             state.foodName = '';
             state.region = '';
-            state.imageUrls = [{
-                imageId: '',
-                imageUrl: ''
-            }];
+            state.imageUrls = [];
             state.description = '';
             state.addpostDisplay = 'flex';
             state.editpostDisplay = 'none';
         },
         deleteUrl: (state, action) => {
-            state.imageUrls = state.imageUrls.filter((url) => (url.imageId !== action.payload))
+            state.imageUrls = state.imageUrls.filter((url, index) => (index !== action.payload))
         }
     }
 });

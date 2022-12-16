@@ -16,9 +16,9 @@ const UserRequestList = () => {
             foodName: 'Pempek',
             region: 'South Sumatra',
             imageUrls: [
-                { imageId: '2872eygfd28dg', imageUrl: 'https://www.piknikdong.com/wp-content/uploads/2021/02/Cara-Membuat-Pempek.jpg' },
-                { imageId: '228hddwhs28dg', imageUrl: 'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/09/04/4062442039.jpeg' },
-                { imageId: 'sd222ygfd28dg', imageUrl: 'https://img.okezone.com/content/2020/12/03/298/2321042/resep-pempek-dos-udang-rebon-rasanya-jos-n1FGhLyt0x.jpg' }
+                'https://www.piknikdong.com/wp-content/uploads/2021/02/Cara-Membuat-Pempek.jpg',
+                'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/09/04/4062442039.jpeg',
+                'https://img.okezone.com/content/2020/12/03/298/2321042/resep-pempek-dos-udang-rebon-rasanya-jos-n1FGhLyt0x.jpg'
             ],
             description: 'Pempek is a savoury Indonesian fish cake delicacy, made of fish and tapioca, from Palembang, South Sumatra.',
             status: 'approved'
@@ -28,8 +28,8 @@ const UserRequestList = () => {
             foodName: 'Nasi Pecel Madiun',
             region: 'East Java',
             imageUrls: [
-                {imageId: '2232rfssd28dg', imageUrl:'url1'},
-                {imageId: '282121fd28dg', imageUrl:'url2'}
+                'url1',
+                'url2'
             ],
             description: 'Nasi pecel is made from rice, vegetables, peanut sauce, and soybeancake.',
             status: 'approved'
@@ -39,8 +39,8 @@ const UserRequestList = () => {
             foodName: 'Batagor',
             region: 'West Java',
             imageUrls: [
-                {imageId: '2we22gfd28dg', imageUrl:'url1'},
-                {imageId: '28wqeygfd28dg', imageUrl:'url2'}
+                'url1',
+                'url2'
             ],
             description: 'Batagor is well known food in Bandung.',
             status: 'approved'
@@ -50,7 +50,7 @@ const UserRequestList = () => {
             foodName: 'Batagor1',
             region: 'West Java',
             imageUrls: [
-                {imageId: '22e2ygfd28dg', imageUrl:'url1'}
+                'url1'
             ],
             description: 'Batagor is well known food in Bandung.',
             status: 'approved'
@@ -60,7 +60,7 @@ const UserRequestList = () => {
             foodName: 'Batagor2',
             region: 'West Java',
             imageUrls: [
-                {imageId: 'dq8722gfd28dg', imageUrl:'url1'}
+                'url1'
             ],
             description: 'Batagor is well known food in Bandung.',
             status: 'approved'
@@ -70,7 +70,7 @@ const UserRequestList = () => {
             foodName: 'Batagor3',
             region: 'West Java',
             imageUrls: [
-                {imageId: '11edcfffd28dg', imageUrl:'url1'}
+                'url1'
             ],
             description: 'Batagor is well known food in Bandung.',
             status: 'approved'
@@ -80,8 +80,8 @@ const UserRequestList = () => {
             foodName: 'Croissant',
             region: 'West JavaSpecial Capital Region of Jakarta',
             imageUrls: [
-                {imageId: '2e2ygfd28dwwdg', imageUrl:'url1'},
-                {imageId: '21wqgeygfd28dg', imageUrl:'url2'}
+                'url1',
+                'url2'
             ],
             description: 'Croissant is a modern food loved by many Indonesian people.',
             status: 'rejected'

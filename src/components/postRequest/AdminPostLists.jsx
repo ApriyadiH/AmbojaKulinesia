@@ -16,9 +16,10 @@ const AdminPostsLists = () => {
             foodName: 'Pempek',
             region: 'South Sumatra',
             imageUrls: [
-                { imageId: '2872eygfd28dg', imageUrl: 'https://www.piknikdong.com/wp-content/uploads/2021/02/Cara-Membuat-Pempek.jpg' },
-                { imageId: '228hddwhs28dg', imageUrl: 'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/09/04/4062442039.jpeg' },
-                { imageId: 'sd222ygfd28dg', imageUrl: 'https://img.okezone.com/content/2020/12/03/298/2321042/resep-pempek-dos-udang-rebon-rasanya-jos-n1FGhLyt0x.jpg' }],
+                'https://www.piknikdong.com/wp-content/uploads/2021/02/Cara-Membuat-Pempek.jpg',
+                'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/09/04/4062442039.jpeg',
+                'https://img.okezone.com/content/2020/12/03/298/2321042/resep-pempek-dos-udang-rebon-rasanya-jos-n1FGhLyt0x.jpg'
+            ],
             description: 'Pempek is a savoury Indonesian fish cake delicacy, made of fish and tapioca, from Palembang, South Sumatra.'
         },
         {
@@ -26,8 +27,8 @@ const AdminPostsLists = () => {
             foodName: 'Nasi Pecel Madiun',
             region: 'East Java',
             imageUrls: [
-                { imageId: '2232rfssd28dg', imageUrl: 'url1' },
-                { imageId: '282121fd28dg', imageUrl: 'url2' }
+                'url1',
+                'url2'
             ],
             description: 'Nasi pecel is made from rice, vegetables, peanut sauce, and soybeancake.'
         },
@@ -36,8 +37,8 @@ const AdminPostsLists = () => {
             foodName: 'Batagor',
             region: 'West Java',
             imageUrls: [
-                { imageId: '2we22gfd28dg', imageUrl: 'url1' },
-                { imageId: '28wqeygfd28dg', imageUrl: 'url2' }
+                'url1',
+                'url2'
             ],
             description: 'Batagor is well known food in Bandung.'
         },
@@ -46,8 +47,8 @@ const AdminPostsLists = () => {
             foodName: 'Brem',
             region: 'East Java',
             imageUrls: [
-                { imageId: '22e2ygfd28dg', imageUrl: 'url1' },
-                { imageId: 'wj2022ygfd2g', imageUrl: 'url2' }
+                'url1',
+                'url2'
             ],
             description: 'Brem is wellknown snack from Madiun.'
         },
@@ -56,8 +57,8 @@ const AdminPostsLists = () => {
             foodName: 'Cilok',
             region: 'West Java',
             imageUrls: [
-                { imageId: 'sqj298e2fvsx', imageUrl: 'url1' },
-                { imageId: 'djq82ujjkwss', imageUrl: 'url2' }
+                'url1',
+                'url2'
             ],
             description: 'Cilok is well known snack from Sundaneese.'
         },
@@ -66,9 +67,9 @@ const AdminPostsLists = () => {
             foodName: 'Bolu Lembang',
             region: 'West Java',
             imageUrls: [
-                { imageId: '11edcfffd28dg', imageUrl: 'url1' },
-                { imageId: 'dafh982q9fjkd', imageUrl: 'url2' },
-                { imageId: 'djwjq028ujdhw', imageUrl: 'url3' }
+                'url1',
+                'url2',
+                'url3'
             ],
             description: 'Bolu lembang is cake from Lembang, Bandung.'
         },
@@ -77,8 +78,8 @@ const AdminPostsLists = () => {
             foodName: 'Brownis Amanda',
             region: 'West Java',
             imageUrls: [
-                { imageId: '2e2ygfd28dwwdg', imageUrl: 'url1' },
-                { imageId: '21wqgeygfd28dg', imageUrl: 'url2' }
+                'url1',
+                'url2'
             ],
             description: 'Brownis is well known cake for Indonesian people specifically in Java'
         },
@@ -87,8 +88,8 @@ const AdminPostsLists = () => {
             foodName: 'Rendang',
             region: 'West Sumatra',
             imageUrls: [
-                { imageId: 'djqo32jqiofd32', imageUrl: 'url1' },
-                { imageId: '27ehdajhndkih8', imageUrl: 'url2' }
+                'url1',
+                'url2'
             ],
             description: "Rendang is delicious meat that become most of Indonesian people's favorite. "
         }

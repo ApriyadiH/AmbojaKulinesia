@@ -41,7 +41,7 @@ const EditPost = () => {
         setPosts({
             region: region,
             foodName: foodName,
-            imageUrl: imageUrls[0].imageUrl,
+            imageUrl: imageUrls[0],
             description: description
         })
     }, [region, foodName, imageUrls, description]);
@@ -56,18 +56,18 @@ const EditPost = () => {
     };
 
     const addImageInput = () => {
-        setImageList([...imageList, { id: imgUrlId, imgUrl: '' }]);
+        setImageList([...imageList, { imageId: imgUrlId, imageUrl: '' }]);
     };
 
     const reduceImageUrl = (id) => {
-        let newImgs = imageList.filter((img) => (img.id !== id));
+        let newImgs = imageList.filter((img) => (img.imageId !== id));
         setImageList(newImgs);
     };
 
     const handleUrlChange = (event, id) => {
         let updateImageUrl = imageList.filter((img) => {
-            if (img.id === id) {
-                img.imgUrl = event.target.value
+            if (img.imageId === id) {
+                img.imageUrl = event.target.value
             }
             return img
         });
@@ -76,7 +76,7 @@ const EditPost = () => {
 
     let UrlList = [];
     for (const url of imageUrls) {
-        UrlList = [...UrlList, url.imageUrl]
+        UrlList = [...UrlList, url]
     };
     for (const url of imageList) {
         UrlList = [...UrlList, url.imgUrl]
@@ -135,6 +135,7 @@ const EditPost = () => {
                         <option value='West Papua'>West Papua</option>
                         <option value='West Sulawesi'>West Sulawesi</option>
                         <option value='West Sumatra'>West Sumatra</option>
+                        <option value='Multiple Region'>Multiple Region</option>
                     </select>
                 </div>
                 <div className='row'>
@@ -156,28 +157,28 @@ const EditPost = () => {
                             <i className="bi bi-plus-circle-fill" onClick={addImageInput}></i>
                         </div>
                     </div>
-                    {imageUrlList.map((img) => (
-                        <div className='row additional-imgurl' key={`id-${img.imageId}`}>
+                    {imageUrlList.map((img, index) => (
+                        <div className='row additional-imgurl' key={`id-${index}`}>
                             <label className='col-4'>Image</label>
                             <div className='col-8 img-col'>
-                                <div className='imgurl'>{img.imageUrl}</div>
-                                <i className="bi bi-dash-circle-fill" onClick={() => { deleteImgUrl(img.imageId) }}></i>
+                                <div className='imgurl'>{img}</div>
+                                <i className="bi bi-dash-circle-fill" onClick={() => { deleteImgUrl(index + 1)}}></i>
                             </div>
                         </div>
                     )
                     )}
                     {imageList.map((img) => (
-                        <div className='row additional-imgurl' key={`id-${img.id}`}>
+                        <div className='row additional-imgurl' key={`id-${img.imageId}`}>
                             <label className='col-4'>Image</label>
                             <div className='col-8 img-col'>
                                 <input 
                                 className='addpost-input img-input' 
                                 placeholder='Put image URL here' 
-                                value={img.imgUrl} 
-                                onChange={event => handleUrlChange(event, img.id)} 
+                                value={img.imageUrl} 
+                                onChange={event => handleUrlChange(event, img.imageId)} 
                                 required 
                                 />
-                                <i className="bi bi-dash-circle-fill" onClick={() => { reduceImageUrl(img.id) }}></i>
+                                <i className="bi bi-dash-circle-fill" onClick={() => { reduceImageUrl(img.imageId) }}></i>
                             </div>
                         </div>
                     )
