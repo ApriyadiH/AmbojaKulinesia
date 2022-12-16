@@ -7,6 +7,7 @@ const Searchbox = () => {
   return (
     <div className="container">
         <h1>Search box</h1>
+
     </div>
   );
 };

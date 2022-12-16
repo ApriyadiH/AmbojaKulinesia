@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../components/general/Navbar';
 
 function LoginForm() {
     const [email, setEmail] = useState('');
@@ -20,9 +19,6 @@ function LoginForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div>
-                <Navbar />
-            </div>
             <label>
                 Email:
                 <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
