@@ -16,9 +16,10 @@ const UserRequestList = () => {
             foodName: 'Pempek',
             region: 'South Sumatra',
             imageUrls: [
-                {imageId: '2872eygfd28dg', imageUrl:'url1'},
-                {imageId: '228hddwhs28dg', imageUrl:'url2'},
-                {imageId: 'sd222ygfd28dg', imageUrl:'url3'}],
+                { imageId: '2872eygfd28dg', imageUrl: 'https://www.piknikdong.com/wp-content/uploads/2021/02/Cara-Membuat-Pempek.jpg' },
+                { imageId: '228hddwhs28dg', imageUrl: 'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/09/04/4062442039.jpeg' },
+                { imageId: 'sd222ygfd28dg', imageUrl: 'https://img.okezone.com/content/2020/12/03/298/2321042/resep-pempek-dos-udang-rebon-rasanya-jos-n1FGhLyt0x.jpg' }
+            ],
             description: 'Pempek is a savoury Indonesian fish cake delicacy, made of fish and tapioca, from Palembang, South Sumatra.',
             status: 'approved'
         },
@@ -148,7 +149,7 @@ const UserRequestList = () => {
                 <div id='approved-list' className='approved'>
                     {approvedReq.map((request) => (
                         <div className='approved-row' key={`id-${request.postId}`}>
-                            <div className='status-box'><i className="bi bi-check-lg"></i></div>
+                            <div className='status-box'><i className="bi bi-check-lg approved-check"></i></div>
                             <div className='content-row'>
                                 <div>{request.foodName}</div>
                                 <div>
@@ -182,7 +183,7 @@ const UserRequestList = () => {
                 <div id='rejected-list' className='rejected'>
                     {rejectedReq.map((request) => (
                         <div className='approved-row' key={`id-${request.postId}`}>
-                            <div className='status-box'><i className="bi bi-x-lg"></i></div>
+                            <div className='status-box'><i className="bi bi-x-lg reject-check"></i></div>
                             <div className='content-row'>
                                 <div>{request.foodName}</div>
                                 <div>

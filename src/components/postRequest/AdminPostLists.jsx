@@ -16,9 +16,9 @@ const AdminPostsLists = () => {
             foodName: 'Pempek',
             region: 'South Sumatra',
             imageUrls: [
-                { imageId: '2872eygfd28dg', imageUrl: 'url1' },
-                { imageId: '228hddwhs28dg', imageUrl: 'url2' },
-                { imageId: 'sd222ygfd28dg', imageUrl: 'url3' }],
+                { imageId: '2872eygfd28dg', imageUrl: 'https://www.piknikdong.com/wp-content/uploads/2021/02/Cara-Membuat-Pempek.jpg' },
+                { imageId: '228hddwhs28dg', imageUrl: 'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/09/04/4062442039.jpeg' },
+                { imageId: 'sd222ygfd28dg', imageUrl: 'https://img.okezone.com/content/2020/12/03/298/2321042/resep-pempek-dos-udang-rebon-rasanya-jos-n1FGhLyt0x.jpg' }],
             description: 'Pempek is a savoury Indonesian fish cake delicacy, made of fish and tapioca, from Palembang, South Sumatra.'
         },
         {
@@ -57,7 +57,7 @@ const AdminPostsLists = () => {
             region: 'West Java',
             imageUrls: [
                 { imageId: 'sqj298e2fvsx', imageUrl: 'url1' },
-                { imageId: 'sqj298e2fvsx', imageUrl: 'url1' }
+                { imageId: 'djq82ujjkwss', imageUrl: 'url2' }
             ],
             description: 'Cilok is well known snack from Sundaneese.'
         },
@@ -80,7 +80,7 @@ const AdminPostsLists = () => {
                 { imageId: '2e2ygfd28dwwdg', imageUrl: 'url1' },
                 { imageId: '21wqgeygfd28dg', imageUrl: 'url2' }
             ],
-            description: 'Brownis is wellknown cake for Indonesian people specifically in Java'
+            description: 'Brownis is well known cake for Indonesian people specifically in Java'
         },
         {
             postId: 'ashqhhwff',
@@ -118,7 +118,7 @@ const AdminPostsLists = () => {
                     {postLists.map((request) => (
                         <div className='content-row adminpost-cntn' key={`id-${request.postId}`}>
                             <div>{request.foodName}</div>
-                            <div>
+                            <div className='usereditdel'>
                                 <i className="bi bi-pencil-square" onClick={() => { editPostHandler(request) }}></i>
                                 <i className="bi bi-trash" onClick={() => {deletePost(request.postId)}}></i>
                             </div>
