@@ -14,7 +14,7 @@ const Detail = () => {
           Judul
         </StTitle>
         <div>
-        <div id="carouselExampleInterval" className="carousel slide mx-10git " data-bs-ride="carousel">
+        <div id="carouselExampleInterval" className="carousel slide mx-10" data-bs-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
               <StCarouselImage src="https://tse4.mm.bing.net/th?id=OIP.YEN0T1YzBxntg4MXQtI3dwHaFj&pid=Api" alt="pempek"/>
@@ -136,9 +136,6 @@ export default Detail;
 
 const StContainer = styled.div`
   padding:  10px 20px 10px  ;
-
-  display: flex;
-  flex-direction: row;
 `
 
 const StDetail = styled.div`

@@ -2,14 +2,12 @@
 import React from "react";
 
 // Import Components
-import Navbar from '../components/general/Navbar';
 import Searchbox from '../components/general/Searchbox';
 import FoodListRating from '../components/foodlist/FoodListRating';
 
 function ListRatingPage() {
   return (
     <div>
-      <Navbar/>
       <Searchbox/>
       <FoodListRating/>
     </div>
