@@ -10,9 +10,6 @@ const Navbar = () => {
       <h1>Navbar</h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
           <Link to="/Food/region/:region">Region</Link>
         </li>
         <li>
