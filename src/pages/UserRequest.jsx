@@ -5,9 +5,9 @@ import 'bootstrap/dist/js/bootstrap.js';
 
 // import component
 import Navbar from "../components/general/Navbar";
-import AddPost from "../components/general/AddPost";
-import UserRequestList from "../components/general/UserRequestList";
-import EditPost from "../components/general/EditPost";
+import UserRequestList from "../components/postRequest/UserRequestList";
+import AddPost from "../components/postRequest/AddPost";
+import EditPost from "../components/postRequest/EditPost";
 
 const UserRequest = () => {
     return (

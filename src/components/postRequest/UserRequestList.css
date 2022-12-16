@@ -23,11 +23,24 @@
     gap: 20px;
 }
 
+.admin-post {
+    height: 68vh;
+    padding: 35px 30px 50px 30px;
+}
+
 .approved {
     max-height: 38vh;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.adminpost-map {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     overflow-y: auto;
     overflow-x: auto;
 }
@@ -75,6 +88,10 @@
     background-color: #d1d1d1;
     padding: 5px 20px;
     font-weight: 500;
+}
+
+.adminpost-cntn {
+    width: 90%;
 }
 
 .content-row div {
