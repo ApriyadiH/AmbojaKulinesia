@@ -12,7 +12,6 @@ import EditPost from "../components/postRequest/EditPost";
 const UserRequest = () => {
     return (
         <div className="container">
-            <Navbar />
             <div className='row'>
                 <div className="col">
                     <UserRequestList />
