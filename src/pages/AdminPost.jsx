@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 // import component
-import Navbar from "../components/general/Navbar";
 import AdminPostsLists from "../components/postRequest/AdminPostLists";
 import AddPost from "../components/postRequest/AddPost";
 import EditPost from "../components/postRequest/EditPost";
@@ -12,7 +11,6 @@ import EditPost from "../components/postRequest/EditPost";
 const AdminPost = () => {
     return (
         <div className="container">
-            <Navbar />
             <div className='row'>
                 <div className="col">
                     <AdminPostsLists />
