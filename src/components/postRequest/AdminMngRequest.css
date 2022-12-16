@@ -1,0 +1,125 @@
+.box1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto 30px auto;
+}
+
+.box1-width {
+    width: 50%;
+}
+
+.request-header {
+    width: 80%;
+    background-color: #6d6d6d;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.request-body {
+    width: 80%;
+    background-color: #ececec;
+    height: 68vh;
+    padding: 35px 30px 50px 30px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.request-map {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.cntn-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    background-color: #d1d1d1;
+    padding: 5px 20px;
+    font-weight: 500;
+}
+
+.title:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.check {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 22px;
+}
+
+.apprv:hover {
+    color: #0275d8;
+    cursor: pointer;
+}
+
+.rejct:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.box2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.detail-header {
+    width: 95%;
+    background-color: #6d6d6d;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 15px 30px;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.detail-header i:hover {
+    cursor: pointer;
+    color: #dbdbdb;
+}
+
+.detail-body {
+    width: 95%;
+    background-color: #ececec;
+    padding: 30px 30px 50px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.region-box {
+    padding: 5px 10px;
+    background-color: #d1d1d1;
+    width: fit-content;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.imgheight {
+    height: 50vh;
+    object-fit: cover;
+}
+
+.desc {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+}

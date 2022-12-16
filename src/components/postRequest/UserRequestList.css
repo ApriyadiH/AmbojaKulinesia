@@ -75,7 +75,7 @@
     font-size: 18px;
 }
 
-.bi-check-lg {
+.approved-check {
     color: #0275d8;
 }
 
@@ -86,7 +86,7 @@
     justify-content: space-between;
     width: 75%;
     background-color: #d1d1d1;
-    padding: 5px 20px;
+    padding: 7px 20px;
     font-weight: 500;
 }
 
@@ -97,7 +97,7 @@
 .content-row div {
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 20px;
 }
 
 .bi-trash:hover {
@@ -110,6 +110,10 @@
     cursor: pointer;
 }
 
-.bi-x-lg {
+.reject-check {
     color: red;
+}
+
+.usereditdel {
+    font-size: 18px;
 }

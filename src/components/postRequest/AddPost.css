@@ -61,9 +61,12 @@
 .imgurl {
     width: 75%;
     margin-right: 15px;
-    border: none;
+    border-style: solid;
+    border-color: #d1d1d1;
+    border-width: 0px 10px 0px 0px;
     padding: 5px 10px;
     background-color: #d1d1d1;
+    overflow-x: hidden;
 }
 
 .img-col i {

@@ -7,6 +7,7 @@ import ListRegion from "../pages/ListRegion";
 import UserSettings from "../pages/UserSettings";
 import UserRequest from "../pages/UserRequest";
 import AdminPost from "../pages/AdminPost";
+import AdminRequest from "../pages/AdminRequest";
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="User/setting" element={<UserSettings />} />
         <Route path="User/request" element={<UserRequest />} />
         <Route path="Admin/post" element={<AdminPost />} />
+        <Route path="Admin/request" element={<AdminRequest />} />
       </Routes>
     </BrowserRouter>
   );
