@@ -10,8 +10,8 @@ const FoodListRegion = () => {
   const region = "West Java"
   const foods = [
     {
-      postId:"1",
-      foodName: "Surabi Bandung",
+      postId:"1", 
+      foodName: "Surabi Bandungggg ggggggggggggggggg ggggggggggg gggggggg gggg gggg g ggggggg",
       likes: "60",
       image: "https://cdn-cas.orami.co.id/parenting/images/5-surabi.width-1000.jpg"
     },
@@ -68,28 +68,31 @@ const FoodListRegion = () => {
       </StCardTitle>
       <StCardContainer>
         <StScrollBar>
-          <div className="row">
-            {foods.map((food) => {
-              return (
-              <StCard className="container col-md-3">
-                <StCardElement width="50%">
-                  <StImage src={food.image} className="d-block w-100" alt={food.foodName}/>
-                </StCardElement>
-                <StCardElement>
-                  <StNameLikes>
-                    <div>
-                      <h5>{food.foodName}</h5>
-                    </div>
-                    <div className="d-flex direction-row">
-                      <i className="bi bi-heart-fill mx-2" style={{color:"red"}}></i>
-                      <p>{food.likes}</p>
-                    </div>
-                    <button type="button" className="btn btn-primary"> Detail </button>
-                  </StNameLikes>
-                </StCardElement>
-              </StCard>
-            )
-            })}
+          <div className="container-fluid">
+            <div className="row">
+              {foods.map((food) => {
+                return (
+                  <div className="container col-3 p-2">
+                    <StCard className="container">
+                      <div className="row">
+                        <div className="col-md-6">
+                          <StImage src={food.image} className="d-block w-100" alt={food.foodName}/>
+                        </div>
+                        <StNameLikes className="col-md-6">
+                          <StName>
+                            <h5 className="text=truncate">{food.foodName}</h5>
+                          </StName>
+                          <div className="row">
+                            <i className="bi bi-heart-fill mx-2 col-1" style={{color:"red"}}></i>
+                            <p className="col">{food.likes}</p>
+                          </div>
+                        </StNameLikes>
+                      </div>
+                    </StCard>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </StScrollBar>
       </StCardContainer>
@@ -134,29 +137,26 @@ const StScrollBar = styled.div`
 `
 
 const StCard = styled.div`
+  padding:  10px 10px 10px;
+  
   border: 0px;
-  background-Color: #ececec;
-  padding:  10px 10px 10px;
-  margin: 20px 20px 20px 20px ;
-  width: ;
-  max-height: 300px;
-
-  display:flex;
-  flex-direction:row;
-`
-
-const StCardElement = styled.div`
-  width: ${props => props.width};
-  padding:  10px 10px 10px;
-  background-color: #d9d9d9;
+  border-radius: 15px ;
+  background-Color: #d9d9d9;
 `
 
 const StImage = styled.img`
-  height: 100px;
+  width:100%;
+  height: 30vh;
   object-fit: cover; 
 `
 
 const StNameLikes = styled.div`
-  display:flex;
-  flex-direction:column;
+  
 `
+
+const StName = styled.span`
+  overflow: hidden; 
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  max-width:0px;
+  `
