@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <Link to="ambojakulinesia" style={{ textDecoration: 'none' }}>
+        <Link to="/ambojakulinesia" style={{ textDecoration: 'none' }}>
           <div className="row">
             <StAmboja className="col">Amboja</StAmboja> 
             <StKuli className="col">Kuli</StKuli> 
@@ -35,9 +35,9 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <StDropDown>
-                  <a className="dropdown-item" href="ambojakulinesia/Food/region/Aceh">Aceh</a>
-                  <a className="dropdown-item" href="ambojakulinesia/Food/region/Bali">Bali</a>
-                  <a className="dropdown-item" href="Food/region/Bangka_Belitung_Islands">Bangka Belitung Islands</a>
+                  <a className="dropdown-item" href="/Food/region/Aceh">Aceh</a>
+                  <a className="dropdown-item" href="/Food/region/Bali">Bali</a>
+                  <a className="dropdown-item" href="/Food/region/Bangka_Belitung_Islands">Bangka Belitung Islands</a>
                   <a className="dropdown-item" href="/Food/region/Banten">Banten</a>
                   <a className="dropdown-item" href="/Food/region/Bengkulu">Bengkulu</a>
                   <a className="dropdown-item" href="/Food/region/Central_Java">Central Java</a>
