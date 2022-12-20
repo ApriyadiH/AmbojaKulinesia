@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <Link to="/ambojakulinesia" style={{ textDecoration: 'none' }}>
+        <Link to="/" style={{ textDecoration: 'none' }}>
           <div className="row">
             <StAmboja className="col">Amboja</StAmboja> 
             <StKuli className="col">Kuli</StKuli> 

@@ -19,7 +19,7 @@ import Register from "../pages/Register";
 const Router = () => {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/ambojakulinesia">
       <Navbar/>
         <Routes>
           <Route path="/" element={<Homepage />} />
