@@ -35,7 +35,7 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <StDropDown>
-                  <a className="dropdown-item" href="/Food/region/Aceh">Aceh</a>
+                  <Link className="dropdown-item" to="/Food/region/Aceh">Aceh</Link>
                   <a className="dropdown-item" href="/Food/region/Bali">Bali</a>
                   <a className="dropdown-item" href="/Food/region/Bangka_Belitung_Islands">Bangka Belitung Islands</a>
                   <a className="dropdown-item" href="/Food/region/Banten">Banten</a>
