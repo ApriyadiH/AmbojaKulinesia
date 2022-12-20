@@ -9,9 +9,8 @@ import Searchbox from '../components/general/Searchbox';
 function HomePage() {
   return (
     <div>
-      <Homepage/>
-      <Navbar/>
       <Searchbox/>
+      <Homepage/>
     </div>
   );
 }

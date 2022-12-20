@@ -8,107 +8,108 @@ import styled from "styled-components";
 
 const AdminManage = () => {
   return (
-    <StContainer>      
-      <StSearch>
-        <h1>Search box</h1>
-      </StSearch>
-      <StDetail> 
-        <StTitle>
-          Judul
-        </StTitle>
-        <StImage src="https://tse4.mm.bing.net/th?id=OIP.YEN0T1YzBxntg4MXQtI3dwHaFj&pid=Api" alt="pempek"/>
-        <div className="d-flex direction-row">
-          <i className="bi bi-heart-fill mx-2" style={{color:"red"}}></i>
-          <p>Likes</p>
-        </div>
-        <div>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem suscipit magnam amet. Perspiciatis animi vero nisi. Delectus tempore animi totam, fugit nam, laborum aperiam earum recusandae exercitationem, nihil rerum iusto?
-        </div>
-      </StDetail>
-      <StComment className="container">
-        <StCommentTitle>
-          <h4>Comment</h4>
-        </StCommentTitle>
-        <StCommentBody>
-          <StForm>
-            <StInput/>
-            <button className="btn btn-primary mx-5 w-40">Add Comment</button>
-          </StForm>
-          <StCommentList>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-          </StCommentList>
-        </StCommentBody>
-      </StComment>
-    </StContainer>
+    <h1>Halaman admin manage user</h1>
+    // <StContainer>      
+    //   <StSearch>
+    //     <h1>Search box</h1>
+    //   </StSearch>
+    //   <StDetail> 
+    //     <StTitle>
+    //       Judul
+    //     </StTitle>
+    //     <StImage src="https://tse4.mm.bing.net/th?id=OIP.YEN0T1YzBxntg4MXQtI3dwHaFj&pid=Api" alt="pempek"/>
+    //     <div className="d-flex direction-row">
+    //       <i className="bi bi-heart-fill mx-2" style={{color:"red"}}></i>
+    //       <p>Likes</p>
+    //     </div>
+    //     <div>
+    //       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem suscipit magnam amet. Perspiciatis animi vero nisi. Delectus tempore animi totam, fugit nam, laborum aperiam earum recusandae exercitationem, nihil rerum iusto?
+    //     </div>
+    //   </StDetail>
+    //   <StComment className="container">
+    //     <StCommentTitle>
+    //       <h4>Comment</h4>
+    //     </StCommentTitle>
+    //     <StCommentBody>
+    //       <StForm>
+    //         <StInput/>
+    //         <button className="btn btn-primary mx-5 w-40">Add Comment</button>
+    //       </StForm>
+    //       <StCommentList>
+    //         <StCommentDetails className="d-flex direction-col">
+    //           <div>
+    //             <h5>User 1</h5>
+    //             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
+    //           </div>
+    //           <div className="w-30">
+    //             <i className="bi bi-trash"></i>
+    //             <i className="bi bi-pencil-square"></i>
+    //           </div>
+    //         </StCommentDetails>
+    //         <StCommentDetails className="d-flex direction-col">
+    //           <div>
+    //             <h5>User 1</h5>
+    //             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
+    //           </div>
+    //           <div className="w-30">
+    //             <i className="bi bi-trash"></i>
+    //             <i className="bi bi-pencil-square"></i>
+    //           </div>
+    //         </StCommentDetails>
+    //         <StCommentDetails className="d-flex direction-col">
+    //           <div>
+    //             <h5>User 1</h5>
+    //             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
+    //           </div>
+    //           <div className="w-30">
+    //             <i className="bi bi-trash"></i>
+    //             <i className="bi bi-pencil-square"></i>
+    //           </div>
+    //         </StCommentDetails>
+    //         <StCommentDetails className="d-flex direction-col">
+    //           <div>
+    //             <h5>User 1</h5>
+    //             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
+    //           </div>
+    //           <div className="w-30">
+    //             <i className="bi bi-trash"></i>
+    //             <i className="bi bi-pencil-square"></i>
+    //           </div>
+    //         </StCommentDetails>
+    //         <StCommentDetails className="d-flex direction-col">
+    //           <div>
+    //             <h5>User 1</h5>
+    //             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
+    //           </div>
+    //           <div className="w-30">
+    //             <i className="bi bi-trash"></i>
+    //             <i className="bi bi-pencil-square"></i>
+    //           </div>
+    //         </StCommentDetails>
+    //         <StCommentDetails className="d-flex direction-col">
+    //           <div>
+    //             <h5>User 1</h5>
+    //             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
+    //           </div>
+    //           <div className="w-30">
+    //             <i className="bi bi-trash"></i>
+    //             <i className="bi bi-pencil-square"></i>
+    //           </div>
+    //         </StCommentDetails>
+    //         <StCommentDetails className="d-flex direction-col">
+    //           <div>
+    //             <h5>User 1</h5>
+    //             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
+    //           </div>
+    //           <div className="w-30">
+    //             <i className="bi bi-trash"></i>
+    //             <i className="bi bi-pencil-square"></i>
+    //           </div>
+    //         </StCommentDetails>
+    //       </StCommentList>
+    //     </StCommentBody>
+    //   </StComment>
+    // </StContainer>
 
   );
 };

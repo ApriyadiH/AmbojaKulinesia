@@ -12,6 +12,7 @@ import UserSettings from "../pages/UserSettings";
 import UserRequest from "../pages/UserRequest";
 import AdminPost from "../pages/AdminPost";
 import AdminRequest from "../pages/AdminRequest";
+import AdminManage from "../pages/AdminManage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 
@@ -29,6 +30,7 @@ const Router = () => {
           <Route path="User/request" element={<UserRequest />} />
           <Route path="Admin/post" element={<AdminPost />} />
           <Route path="Admin/request" element={<AdminRequest />} />
+          <Route path="Admin/manage" element={<AdminManage />} />
           <Route path="Login" element={<Login />} />
           <Route path="Register" element={<Register />} />
           <Route path="Test" element={<Test />} />
