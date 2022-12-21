@@ -6,13 +6,13 @@
 
 .header-cntr {
     margin-top: 50px;
-    background-color: #6d6d6d;
+    background-color: #343a40;
     border-radius: 15px 15px 0px 0px;
     color: white
 }
 
 .content-cntr {
-    background-color: #ececec;
+    background-color: #f2f2f5;
     border-radius: 0px 0px 15px 15px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .userinfo-input:focus {
-    outline-color: #6d6d6d;
+    outline-color: #343a40;
 }
 
 .reset-pass {
@@ -61,8 +61,8 @@
     align-items: center;
 }
 
-.respass-input {
-    width: 85%;
+.respass-input2 {
+    width: 90%;
     outline: none;
     border: none;
 }
@@ -75,7 +75,7 @@
 }
 
 .pass-input {
-    width: 52%;
+    width: 55%;
     display: flex;
     justify-content: space-between;
     padding: 4px 20px 4px 15px;
@@ -84,7 +84,7 @@
 }
 
 .pass-input:focus-within {
-    border: 2px solid #6d6d6d;
+    border: 2px solid #343a40;
 }
 
 .pass-input i {

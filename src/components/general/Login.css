@@ -1,24 +1,34 @@
 .login-container {
-    width: 45%;
-    padding: 20px 30px;
+    width: 35%;
+    padding: 20px 40px;
     margin: auto;
 }
 
 .header-cntr {
     margin-top: 50px;
-    background-color: #6d6d6d;
+    background-color: #343a40;
     border-radius: 15px 15px 0px 0px;
     color: white
 }
 
 .content-cntr {
-    background-color: #ececec;
+    background-color: #f2f2f5;
     border-radius: 0px 0px 15px 15px;
 }
 
 .login {
     align-items: center;
     margin-top: 15px;
+}
+
+.login .row {
+    margin-bottom: 20px;
+}
+
+.login .row span {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 .login-container label {
@@ -29,23 +39,21 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
 }
 
-.login-input {
-    width: 55%;
+.login-input2 {
+    width: 70%;
     padding: 5px 15px;
-    margin-bottom: 15px;
     border: none;
     border-radius: 10px;
 }
 
-.login-input:focus {
-    outline-color: #6d6d6d;
+.login-input2:focus {
+    outline-color: #343a40;
 }
 
-.pass-input {
-    width: 55%;
+.pass-input2 {
+    width: 70%;
     display: flex;
     justify-content: space-between;
     padding: 4px 20px 4px 15px;
@@ -53,15 +61,15 @@
     border-radius: 10px;
 }
 
-.pass-input:focus-within {
-    border: 2px solid #6d6d6d;
+.pass-input2:focus-within {
+    border: 2px solid #343a40;
 }
 
-.pass-input i {
+.pass-input2 i {
     font-size: 20px;
 }
 
-.pass-input i:hover {
+.pass-input2 i:hover {
     cursor: pointer;
 }
 
@@ -71,3 +79,6 @@
     border: none;
 }
 
+.btn-width {
+    width: 98%
+}

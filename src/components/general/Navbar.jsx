@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
+      <div className="container-fluid" style={{"padding":"0px 30px"}}>
         <Link to="/" style={{ textDecoration: 'none' }}>
           <div className="row">
             <StAmboja className="col">Amboja</StAmboja> 

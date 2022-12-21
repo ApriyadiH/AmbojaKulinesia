@@ -163,14 +163,14 @@ const UserSetting = () => {
                 <div className='respass row'>
                     <label className='col-4'>New Password</label>
                     <div className='col-8 pass-input'>
-                        <input type='password' id='pass-input1' value={password} className='respass-input' onChange={newPassword} required />
+                        <input type='password' id='pass-input1' value={password} className='respass-input2' onChange={newPassword} required />
                         <i id='passinput-icon1' className="bi bi-eye-slash-fill" onClick={togglePass1}></i>
                     </div>
                 </div>
                 <div className='respass row'>
                     <label className='col-4'>Confirm Password</label>
                     <div className='col-8 pass-input'>
-                        <input type='password' id='pass-input2' value={confirmPassword} className='respass-input' onChange={confirmPass} required />
+                        <input type='password' id='pass-input2' value={confirmPassword} className='respass-input2' onChange={confirmPass} required />
                         <i id='passinput-icon2' className="bi bi-eye-slash-fill" onClick={togglePass2}></i>
                     </div>
                 </div>
