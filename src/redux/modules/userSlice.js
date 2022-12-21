@@ -6,27 +6,34 @@ const initialState = {
     email: '',
     isAdmin: '',
     isLoading: false,
-    error: null   
+    errorMessage: null,
+    isLoggedIn: false
 };
 
 export const userLogin = createAsyncThunk(
     'login',
-    async ( { email, password }, thunkAPI ) => {
+    async ({ email, password }, thunkAPI) => {
         try {
-            console.log("email", email, "password", password)
-            const response = await axios.post(
-                "https://ambojakulinesiaserver.vercel.app/api/login",
-                // "http://localhost:8000/api/login",
+            const { data } = await axios.post(
+                // "https://ambojakulinesiaserver.vercel.app/api/login",
+                "http://localhost:8000/api/login",
                 {
                     email: email,
                     password: password
                 }
             );
-            localStorage.setItem('user', JSON.stringify(response.data.data));
-            // return thunkAPI.fulfillWithValue(response);
-            return response;
+            localStorage.setItem('user', JSON.stringify(data.data));
+            return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
-            return thunkAPI.rejectWithValue(error);
+            const status = error.response.status;
+            let message = null;
+            if (status === 400) {
+                message = error.response.data.message
+            } else {
+                message = 'Cannot access the server.'
+            }
+            console.log(message)
+            return thunkAPI.rejectWithValue(message);
         }
     }
 );
@@ -34,24 +41,26 @@ export const userLogin = createAsyncThunk(
 export const userSlice = createSlice({
     name: "user",
     initialState,
-    reducers: {
+    reducers: {},
+    extraReducers: {
         [userLogin.pending]: (state) => {
             state.isLoading = true;
+            state.errorMessage = null;
         },
         [userLogin.fulfilled]: (state, action) => {
-            console.log(action.payload)
-            state.username = action.payload.data.data.username;
-            state.email = action.payload.data.data.email;
-            state.isAdmin = action.payload.data.data.isAdmin;
+            state.username = action.payload.username;
+            state.email = action.payload.email;
+            state.isAdmin = action.payload.isAdmin;
             state.isLoading = false;
-            state.error = null;
+            state.errorMessage = null;
+            state.isLoggedIn = true;
         },
         [userLogin.rejected]: (state, action) => {
             state.isLoading = false;
-            state.error = action.payload;
+            state.errorMessage = action.payload;
+            state.isLoggedIn = false;
         }
-    },
-    extraReducers: {}
+    }
 });
 
 export default userSlice.reducer;

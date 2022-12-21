@@ -2,14 +2,15 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import React from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import './Login.css';
 import { userLogin } from '../../redux/modules/userSlice';
-import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const loginSchema = yup.object({
     email: yup.string().email("Email is not valid").required("Email is required"),
@@ -19,6 +20,8 @@ const loginSchema = yup.object({
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const { errorMessage, isLoggedIn } = useSelector((state) => state.user)
 
     const togglePass1 = () => {
         let inputType = document.getElementById("password");
@@ -41,19 +44,24 @@ const Login = () => {
     });
 
     const login = async (values) => {
-        // dispatch(userLogin(values))
-        //     .then((data) => {
-        //         console.log(data)
-        //     })
-        try {
-            const response = await axios.post(
-                "https://ambojakulinesiaserver.vercel.app/api/login",
-                // "http://localhost:8000/api/login",
-                values
-            );
-        } catch (error) {
-            console.log(error)
-        }
+        dispatch(userLogin(values));
+    }
+
+    if (errorMessage) {
+        toast.error(errorMessage, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
+    if (isLoggedIn) {
+        navigate("/");
     }
 
     return (
@@ -84,6 +92,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+            <ToastContainer />
         </div >
     )
 };
