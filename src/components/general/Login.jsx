@@ -2,14 +2,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import React from 'react';
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import './Login.css';
 import { userLogin } from '../../redux/modules/userSlice';
-import axios from "axios";
 
 const loginSchema = yup.object({
     email: yup.string().email("Email is not valid").required("Email is required"),
@@ -19,6 +18,8 @@ const loginSchema = yup.object({
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const { errorMessage, isLoggedIn } = useSelector((state) => state.user)
 
     const togglePass1 = () => {
         let inputType = document.getElementById("password");
@@ -41,19 +42,11 @@ const Login = () => {
     });
 
     const login = async (values) => {
-        // dispatch(userLogin(values))
-        //     .then((data) => {
-        //         console.log(data)
-        //     })
-        try {
-            const response = await axios.post(
-                "https://ambojakulinesiaserver.vercel.app/api/login",
-                // "http://localhost:8000/api/login",
-                values
-            );
-        } catch (error) {
-            console.log(error)
-        }
+        dispatch(userLogin(values));
+    }
+
+    if (isLoggedIn) {
+        navigate("/");
     }
 
     return (
@@ -63,6 +56,8 @@ const Login = () => {
             </div>
 
             <div className='login-container content-cntr' id='myprofile'>
+                {errorMessage && <div className='errormessage1'>{errorMessage}</div>}
+
                 <form className='login' onSubmit={handleSubmit(login)}>
                     <div className='row'>
                         <label className='col-3'>Email</label>
@@ -83,6 +78,10 @@ const Login = () => {
                         <button type='submit' className='btn btn-primary btn-width'>Login</button>
                     </div>
                 </form>
+                <div className='linktoregister'>
+                    <span>Doesn't have an account?</span>
+                    <Link to='/Register'>Create account</Link>
+                </div>
             </div>
         </div >
     )
