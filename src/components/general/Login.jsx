@@ -3,14 +3,12 @@ import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import './Login.css';
 import { userLogin } from '../../redux/modules/userSlice';
-import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 
 const loginSchema = yup.object({
     email: yup.string().email("Email is not valid").required("Email is required"),
@@ -47,19 +45,6 @@ const Login = () => {
         dispatch(userLogin(values));
     }
 
-    if (errorMessage) {
-        toast.error(errorMessage, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    }
-
     if (isLoggedIn) {
         navigate("/");
     }
@@ -71,6 +56,8 @@ const Login = () => {
             </div>
 
             <div className='login-container content-cntr' id='myprofile'>
+                {errorMessage && <div className='errormessage1'>{errorMessage}</div>}
+
                 <form className='login' onSubmit={handleSubmit(login)}>
                     <div className='row'>
                         <label className='col-3'>Email</label>
@@ -91,8 +78,11 @@ const Login = () => {
                         <button type='submit' className='btn btn-primary btn-width'>Login</button>
                     </div>
                 </form>
+                <div className='linktoregister'>
+                    <span>Doesn't have an account?</span>
+                    <Link to='/Register'>Create account</Link>
+                </div>
             </div>
-            <ToastContainer />
         </div >
     )
 };

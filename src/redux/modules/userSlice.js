@@ -15,8 +15,8 @@ export const userLogin = createAsyncThunk(
     async ({ email, password }, thunkAPI) => {
         try {
             const { data } = await axios.post(
-                // "https://ambojakulinesiaserver.vercel.app/api/login",
-                "http://localhost:8000/api/login",
+                "https://ambojakulinesiaserver.vercel.app/login",
+                // "http://localhost:8000/api/login",
                 {
                     email: email,
                     password: password
@@ -32,7 +32,6 @@ export const userLogin = createAsyncThunk(
             } else {
                 message = 'Cannot access the server.'
             }
-            console.log(message)
             return thunkAPI.rejectWithValue(message);
         }
     }
