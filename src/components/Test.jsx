@@ -33,15 +33,33 @@ const Test = () => {
     setInputPost("");
   };
 
-  console.log(inputPost)
+  console.log("input di Post", inputPost)
   //////////////////
   
   // GET SPECIFIC
   //////////////////
+  const [inputSpecific, setInputSpecific] = useState("");
+  const [specific, setSpecific] = useState(null);
+
+  const onClickSpecific = async (testId) => {
+    const req = axios.get(`https://ambojakulinesiaserver.vercel.app/test/${testId}`)
+    const res = await req;
+    setInputSpecific("");
+    setSpecific(res.data.data);
+    console.log("hasil ambil spesifik", res.data.data);
+  };
   //////////////////
 
   // PATCH
   //////////////////
+  const [inputUpdate, setInputUpdate] = useState("");
+  const [newName, setNewName] = useState("");
+
+  const onClickUpdate = (testId) => {
+    axios.patch(`https://ambojakulinesiaserver.vercel.app/test/${testId}`);
+    console.log("data berhasil diubah");
+    setInputUpdate("");
+  };
   //////////////////
   
   // DELETE
@@ -50,7 +68,8 @@ const Test = () => {
 
   const onClickDelete = (testId) => {
     axios.delete(`https://ambojakulinesiaserver.vercel.app/test/${testId}`);
-    console.log("data berhasil terhapus")
+    console.log("data berhasil terhapus");
+    setInputDelete("");
   };
   //////////////////
 
@@ -63,7 +82,7 @@ const Test = () => {
         <button onClick={(e) => {e.preventDefault(); fetchTest();}}>Tombol Fetch</button>
         <ul>
         {fetch?.map((contentFetch,index) => (
-          <li key={index}>{contentFetch.name}</li>
+          <li key={index}>{contentFetch.name}" testId: "{contentFetch.testId}</li>
         ))}
         </ul>
       </StContainer>
@@ -75,14 +94,24 @@ const Test = () => {
         <button onClick={(e) => {e.preventDefault(); postTest(inputPost);}}>Tombol Post</button>
       </StContainer>
 
-
+      {/* FETCH SPECIFIC */}
       <StContainer className="col">
         <h1>Test Get Spesifik</h1>
-        <button>Tombol Get Spesifik</button>
+        <input value={inputSpecific} onChange={(event) => {setInputSpecific(event.target.value);}} />
+        <button onClick={(e) => {e.preventDefault(); onClickSpecific(inputSpecific);}}>Tombol Fetch Spesifik</button>
+        <ul>
+        {specific?.map((contentSpecific,index) => (
+          <li key={index}>{contentSpecific.name}" testId: "{contentSpecific.testId}</li>
+        ))}
+        </ul>
       </StContainer>
+
+      {/* PATCH */}
       <StContainer className="col">
         <h1>Test Patch</h1>
-        <button>Tombol Patch</button>
+        {/* <input value={inputUpdate} onChange={(event) => {setInputUpdate(event.target.value);}} />
+        <input value={inputUpdate} onChange={(event) => {setInputUpdate(event.target.value);}} />
+        <button onClick={(e) => {e.preventDefault(); onClickUpdate(inputUpdate);}}>Tombol Patch</button> */}
       </StContainer>
 
       {/* DELETE */}
