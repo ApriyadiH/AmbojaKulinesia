@@ -77,6 +77,9 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/Food/rating">Best Culinary</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Test">TESTER</Link>
+            </li>
           </ul>
           { isLogin ? ( 
             <li className="d-flex">
