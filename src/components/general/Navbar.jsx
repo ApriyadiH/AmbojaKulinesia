@@ -36,46 +36,46 @@ const Navbar = () => {
               <ul className="dropdown-menu">
                 <StDropDown>
                   <Link className="dropdown-item" to="/Food/region/Aceh">Aceh</Link>
-                  <a className="dropdown-item" href="/Food/region/Bali">Bali</a>
-                  <a className="dropdown-item" href="/Food/region/Bangka_Belitung_Islands">Bangka Belitung Islands</a>
-                  <a className="dropdown-item" href="/Food/region/Banten">Banten</a>
-                  <a className="dropdown-item" href="/Food/region/Bengkulu">Bengkulu</a>
-                  <a className="dropdown-item" href="/Food/region/Central_Java">Central Java</a>
-                  <a className="dropdown-item" href="/Food/region/Central_Kalimantan">Central Kalimantan</a>
-                  <a className="dropdown-item" href="/Food/region/Central_Sulawesi">Central Sulawesi</a>
-                  <a className="dropdown-item" href="/Food/region/East_Java">East Java</a>
-                  <a className="dropdown-item" href="/Food/region/East_Kalimantan">East Kalimantan</a>
-                  <a className="dropdown-item" href="/Food/region/East_Nusa_Tenggara">East Nusa Tenggara</a>
-                  <a className="dropdown-item" href="/Food/region/Gorontalo">Gorontalo</a>
-                  <a className="dropdown-item" href="/Food/region/Jambi">Jambi</a>
-                  <a className="dropdown-item" href="/Food/region/Lampung">Lampung</a>
-                  <a className="dropdown-item" href="/Food/region/Maluku">Maluku</a>
-                  <a className="dropdown-item" href="/Food/region/North_Kalimantan">North Kalimantan</a>
-                  <a className="dropdown-item" href="/Food/region/North_Maluku">North Maluku</a>
-                  <a className="dropdown-item" href="/Food/region/North_Sulawesi">North Sulawesi</a>
-                  <a className="dropdown-item" href="/Food/region/North_Sumatra">North Sumatra</a>
-                  <a className="dropdown-item" href="/Food/region/Papua">Papua</a>
-                  <a className="dropdown-item" href="/Food/region/Riau">Riau</a>
-                  <a className="dropdown-item" href="/Food/region/Riau_Islands">Riau Islands</a>
-                  <a className="dropdown-item" href="/Food/region/Southeast_Sulawesi">Southeast Sulawesi</a>
-                  <a className="dropdown-item" href="/Food/region/South_Kalimantan">South Kalimantan</a>
-                  <a className="dropdown-item" href="/Food/region/South_Sulawesi">South Sulawesi</a>
-                  <a className="dropdown-item" href="/Food/region/South_Kalimantan">South Kalimantan</a>
-                  <a className="dropdown-item" href="/Food/region/South_Sumatra">South Sumatra</a>
-                  <a className="dropdown-item" href="/Food/region/Jakarta">Jakarta</a>
-                  <a className="dropdown-item" href="/Food/region/Yogyakarta">Yogyakarta</a>
-                  <a className="dropdown-item" href="/Food/region/West_Java">West Java</a>
-                  <a className="dropdown-item" href="/Food/region/West_Kalimantan">West Kalimantan</a>
-                  <a className="dropdown-item" href="/Food/region/West_Nusa_Tenggara">West Nusa Tenggara</a>
-                  <a className="dropdown-item" href="/Food/region/West_Papua">West Papua</a>
-                  <a className="dropdown-item" href="/Food/region/West_Sulawesi">West Sulawesi</a>
-                  <a className="dropdown-item" href="/Food/region/West_Sumatra">West Sumatra</a>
-                  <a className="dropdown-item" href="/Food/region/Multiple_Region">Multiple Region</a>
+                  <Link className="dropdown-item" to="/Food/region/Bali">Bali</Link>
+                  <Link className="dropdown-item" to="/Food/region/Bangka_Belitung_Islands">Bangka Belitung Islands</Link>
+                  <Link className="dropdown-item" to="/Food/region/Banten">Banten</Link>
+                  <Link className="dropdown-item" to="/Food/region/Bengkulu">Bengkulu</Link>
+                  <Link className="dropdown-item" to="/Food/region/Central_Java">Central Java</Link>
+                  <Link className="dropdown-item" to="/Food/region/Central_Kalimantan">Central Kalimantan</Link>
+                  <Link className="dropdown-item" to="/Food/region/Central_Sulawesi">Central Sulawesi</Link>
+                  <Link className="dropdown-item" to="/Food/region/East_Java">East Java</Link>
+                  <Link className="dropdown-item" to="/Food/region/East_Kalimantan">East Kalimantan</Link>
+                  <Link className="dropdown-item" to="/Food/region/East_Nusa_Tenggara">East Nusa Tenggara</Link>
+                  <Link className="dropdown-item" to="/Food/region/Gorontalo">Gorontalo</Link>
+                  <Link className="dropdown-item" to="/Food/region/Jambi">Jambi</Link>
+                  <Link className="dropdown-item" to="/Food/region/Lampung">Lampung</Link>
+                  <Link className="dropdown-item" to="/Food/region/Maluku">Maluku</Link>
+                  <Link className="dropdown-item" to="/Food/region/North_Kalimantan">North Kalimantan</Link>
+                  <Link className="dropdown-item" to="/Food/region/North_Maluku">North Maluku</Link>
+                  <Link className="dropdown-item" to="/Food/region/North_Sulawesi">North Sulawesi</Link>
+                  <Link className="dropdown-item" to="/Food/region/North_Sumatra">North Sumatra</Link>
+                  <Link className="dropdown-item" to="/Food/region/Papua">Papua</Link>
+                  <Link className="dropdown-item" to="/Food/region/Riau">Riau</Link>
+                  <Link className="dropdown-item" to="/Food/region/Riau_Islands">Riau Islands</Link>
+                  <Link className="dropdown-item" to="/Food/region/Southeast_Sulawesi">Southeast Sulawesi</Link>
+                  <Link className="dropdown-item" to="/Food/region/South_Kalimantan">South Kalimantan</Link>
+                  <Link className="dropdown-item" to="/Food/region/South_Sulawesi">South Sulawesi</Link>
+                  <Link className="dropdown-item" to="/Food/region/South_Kalimantan">South Kalimantan</Link>
+                  <Link className="dropdown-item" to="/Food/region/South_Sumatra">South Sumatra</Link>
+                  <Link className="dropdown-item" to="/Food/region/Jakarta">Jakarta</Link>
+                  <Link className="dropdown-item" to="/Food/region/Yogyakarta">Yogyakarta</Link>
+                  <Link className="dropdown-item" to="/Food/region/West_Java">West Java</Link>
+                  <Link className="dropdown-item" to="/Food/region/West_Kalimantan">West Kalimantan</Link>
+                  <Link className="dropdown-item" to="/Food/region/West_Nusa_Tenggara">West Nusa Tenggara</Link>
+                  <Link className="dropdown-item" to="/Food/region/West_Papua">West Papua</Link>
+                  <Link className="dropdown-item" to="/Food/region/West_Sulawesi">West Sulawesi</Link>
+                  <Link className="dropdown-item" to="/Food/region/West_Sumatra">West Sumatra</Link>
+                  <Link className="dropdown-item" to="/Food/region/Multiple_Region">Multiple Region</Link>
                 </StDropDown>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/Food/rating">Best Culinary</a>
+              <Link className="nav-link" to="/Food/rating">Best Culinary</Link>
             </li>
           </ul>
           { isLogin ? ( 
@@ -90,7 +90,7 @@ const Navbar = () => {
                 <ul className="dropdown-menu">
                   {(role === "admin")?(
                     <div className="menu-admin">
-                      <li><a className="dropdown-item" href="/Admin/manage">Manage Users</a></li>
+                      <li><a className="dropdown-item" to="/Admin/manage">Manage Users</a></li>
                       <li><a className="dropdown-item" href="/Admin/post">Post List</a></li>
                       <li><a className="dropdown-item" href="/Admin/request">Request List</a></li>
                     </div>
