@@ -1,56 +1,67 @@
-//import library
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import React, { useState } from 'react';
-
-//import component
 import './Login.css';
 
-const LoginForm = () => {
+const Login = () => {
+    const usernameFromRedux = 'User1';
+    const emailFromRedux = 'user1@gmail.com';
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // send a request to the server to verify the user's credentials
-        if (email === 'test@example.com' && password === 'password') {
-            // credentials are valid, redirect the user to the protected area of the app
-            window.location = '/protected';
+    const onChangeEmail = (event) => {
+        setEmail(event.target.value)
+    };
+
+    const onChangePassword = (event) => {
+        setPassword(event.target.value);
+    };
+
+    const togglePass1 = () => {
+        let inputType = document.getElementById("pass-input1");
+        let icon = document.getElementById("passinput-icon1");
+        if (inputType.type === 'password') {
+            inputType.type = 'text';
+            icon.className = 'bi bi-eye-fill';
         } else {
-            // credentials are invalid, show an error message
-            setError('Invalid email or password');
+            inputType.type = 'password';
+            icon.className = 'bi bi-eye-slash-fill';
         }
     };
 
+    const onClickLogin = () => {
+        // Axios disini
+        setEmail('');
+        setPassword('');
+    }
 
     return (
         <div>
-            <div className="container">
-                <div className='userinfo-container header-cntr'>
-                    <h4>Login</h4>
-                </div>
-                <div classname="userinfo-container-content-cntr">
-                    <form onSubmit={handleSubmit}>
-                        <div class="container">
-                            <div class="custom-box">
-                                <label class="label">
-                                    Email:
-                                    <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-                                </label>
-                                <br />
-                                <label>
-                                    Password:
-                                    <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-                                </label>
-                                <br />
-                                {error && <p>{error}</p>}
-                                <button type="submit">Log in</button>
-                            </div>
+            <div className='login-container header-cntr'>
+                <h4>Login</h4>
+            </div>
+
+            <div className='login-container content-cntr' id='myprofile'>
+                <div className='login'>
+                    <div className='row'>
+                        <label className='col-4'>Email</label>
+                        <input className='col-8 login-input' name="email" value={email} onChange={onChangeEmail} required />
+                    </div>
+                    <div className='row'>
+                        <label className='col-4'>Password</label>
+                        <div className='col-8 pass-input'>
+                            <input type='password' id='pass-input1' value={password} className='respass-input' onChange={onChangePassword} required />
+                            <i id='passinput-icon1' className="bi bi-eye-slash-fill" onClick={togglePass1}></i>
                         </div>
-                    </form>
+                    </div>
+                    <div className='login-btn my-2 '>
+                        <button type='submit' className='btn btn-primary' onClick={onClickLogin}>Login</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
-}
+        </div >
+    )
+};
 
-export default LoginForm;
+export default Login;
