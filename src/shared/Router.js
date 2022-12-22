@@ -34,7 +34,7 @@ const Router = () => {
           <Route path="Admin/manage" element={<AdminManage />} />
           <Route path="Login" element={<Login />} />
           <Route path="Register" element={<Register />} />
-          <Route path="Test" element={<Test />} />
+          {/* <Route path="Test" element={<Test />} /> */}
           <Route path="Error404" element={<Error404 />} />
         </Routes>
       </BrowserRouter>

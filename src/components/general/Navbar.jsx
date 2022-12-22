@@ -94,9 +94,6 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/Food/rating">Best Culinary</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Test">TESTER</Link>
-            </li>
           </ul>
           {isLoggedIn ? (
             <li className="d-flex">

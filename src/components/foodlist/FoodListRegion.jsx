@@ -18,9 +18,6 @@ const FoodListRegion = () => {
     setFoods(data.data);
   };
 
-  console.log(foods)
-  console.log(format_region)
-
   useEffect(() => {
     fetchFoods(region);
   }, [region]);
