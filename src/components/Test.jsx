@@ -41,13 +41,17 @@ const Test = () => {
   const [inputSpecific, setInputSpecific] = useState("");
   const [specific, setSpecific] = useState(null);
 
-  const onClickSpecific = async (testId) => {
-    const req = axios.get(`https://ambojakulinesiaserver.vercel.app/test/${testId}`)
-    const res = await req;
-    setInputSpecific("");
-    setSpecific(res.data.data);
-    console.log("hasil ambil spesifik", res.data.data);
+  const onClickSpecific = (testId) => {
+    axios.get(`https://ambojakulinesiaserver.vercel.app/test/${testId}`)
+    .then( res => {
+      console.log(res.data.data)
+      setTimeout((setSpecific(res.data.data)),5000)
+      setInputSpecific("");
+    }).catch(err => {
+      console.log(err)
+    })
   };
+  console.log(specific)
   //////////////////
 
   // PATCH
@@ -81,7 +85,7 @@ const Test = () => {
         <h1>Test Fetch</h1>
         <button onClick={(e) => {e.preventDefault(); fetchTest();}}>Tombol Fetch</button>
         <ul>
-        {fetch?.map((contentFetch,index) => (
+        {fetch ?.map((contentFetch,index) => (
           <li key={index}>{contentFetch.name}" testId: "{contentFetch.testId}</li>
         ))}
         </ul>
@@ -100,9 +104,9 @@ const Test = () => {
         <input value={inputSpecific} onChange={(event) => {setInputSpecific(event.target.value);}} />
         <button onClick={(e) => {e.preventDefault(); onClickSpecific(inputSpecific);}}>Tombol Fetch Spesifik</button>
         <ul>
-        {specific?.map((contentSpecific,index) => (
+        {specific ? (specific.map((contentSpecific,index) => (
           <li key={index}>{contentSpecific.name}" testId: "{contentSpecific.testId}</li>
-        ))}
+        ))):(<div></div>)}
         </ul>
       </StContainer>
 
