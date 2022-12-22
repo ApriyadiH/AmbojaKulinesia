@@ -92,7 +92,7 @@
 
 .detail-header i:hover {
     cursor: pointer;
-    color: hsla(210, 10%, 23%, 0.08);
+    color: #eeeeee;
 }
 
 .detail-body {
