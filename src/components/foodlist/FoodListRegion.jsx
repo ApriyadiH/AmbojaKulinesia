@@ -33,7 +33,7 @@ const FoodListRegion = () => {
           <div className="container-fluid">
             <div className="row row-cols-md-4">
               {foods?.map((food) => (
-                  <div className="p-2" key={food.postId} type="button" onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
+                  <div className="p-2" key={food.postId} type="button" onClick={() => {navigate(`/food/detail/${(food.foodName).split(" ").join("_")}`);}}>
                     <StCard className="col">
                       <div className="row">
                         <div className="col-md-6">

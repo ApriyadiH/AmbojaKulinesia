@@ -67,7 +67,7 @@ const FoodListRating = () => {
 
                 {/* Name, Region, Likes */}
                 <StNameLikes className="col-md-2">
-                  <div type="button" onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
+                  <div type="button" onClick={() => {navigate(`/food/detail/${(food.foodName).split(" ").join("_")}`);}}>
                     <h5>{food.foodName}</h5>
                   </div>
                   <div type="button" onClick={() => {navigate(`/food/region/${(food.region).split(" ").join("_")}`);}}>
@@ -80,7 +80,7 @@ const FoodListRating = () => {
                 </StNameLikes>
 
                 {/* Description */}
-                <StDescription className="col-md-6" type="button" onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
+                <StDescription className="col-md-6" type="button" onClick={() => {navigate(`/food/detail/${(food.foodName).split(" ").join("_")}`);}}>
                   {food.description}
                 </StDescription>
               </div>

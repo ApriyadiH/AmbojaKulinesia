@@ -103,11 +103,9 @@ const Test = () => {
         <h1>Test Get Spesifik</h1>
         <input value={inputSpecific} onChange={(event) => {setInputSpecific(event.target.value);}} />
         <button onClick={(e) => {e.preventDefault(); onClickSpecific(inputSpecific);}}>Tombol Fetch Spesifik</button>
-        <ul>
-        {specific ? (specific.map((contentSpecific,index) => (
-          <li key={index}>{contentSpecific.name}" testId: "{contentSpecific.testId}</li>
-        ))):(<div></div>)}
-        </ul>
+        <div>
+          {specific?.name}" testId: "{specific.testId}
+        </div>
       </StContainer>
 
       {/* PATCH */}

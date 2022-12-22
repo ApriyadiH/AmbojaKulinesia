@@ -24,7 +24,7 @@ const Router = () => {
       <Navbar/>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="Food/detail/:id" element={<Detail />} />
+          <Route path="Food/detail/:foodName" element={<Detail />} />
           <Route path="Food/region/:region" element={<ListRegion />} />
           <Route path="Food/rating" element={<ListRating />} />
           <Route path="User/setting" element={<UserSettings />} />

@@ -1,5 +1,6 @@
 // Import library
 import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -7,128 +8,110 @@ import 'bootstrap/dist/js/bootstrap.js';
 import styled from "styled-components";
 
 const Detail = () => {
-  return (
-    <StContainer>      
-      <StDetail>
-        <StTitle>
-          Judul
-        </StTitle>
-        <div>
-        <div id="carouselExampleInterval" className="carousel slide mx-10" data-bs-ride="carousel">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <StCarouselImage src="https://tse4.mm.bing.net/th?id=OIP.YEN0T1YzBxntg4MXQtI3dwHaFj&pid=Api" alt="pempek"/>
-            </div>
-            <div className="carousel-item">
-              <StCarouselImage src="https://tse3.mm.bing.net/th?id=OIP.FWKSUCBrg6AsIlzUNFQPVwHaEv&pid=Api" alt="pempek"/>
-            </div>
-            <div className="carousel-item">
-              <StCarouselImage src="https://tse2.mm.bing.net/th?id=OIP.8pjBGLyv9B-DL9PPl1aFFQHaFZ&pid=Api" alt="pempek"/>
-            </div>
-          </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-        <div className="d-flex direction-row">
-          <i className="bi bi-heart-fill mx-2" style={{color:"red"}}></i>
-          <p>Likes</p>
-        </div>
-        <div>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem suscipit magnam amet. Perspiciatis animi vero nisi. Delectus tempore animi totam, fugit nam, laborum aperiam earum recusandae exercitationem, nihil rerum iusto?
-        </div>
-      </StDetail>
-      <StComment className="container">
-        <StCommentTitle>
-          <h4>Comment</h4>
-        </StCommentTitle>
-        <StCommentBody>
-          <StForm>
-            <StInput/>
-            <button className="btn btn-primary mx-5 w-40">Add Comment</button>
-          </StForm>
-          <StCommentList>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-            <StCommentDetails className="d-flex direction-col">
-              <div>
-                <h5>User 1</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, sequi debitis! Laudantium quisquam laborum nihil ea excepturi magni, inventore pariatur adipisci cumque cum totam sequi doloribus enim porro nesciunt perspiciatis.</p>
-              </div>
-              <div className="w-30">
-                <i className="bi bi-trash"></i>
-                <i className="bi bi-pencil-square"></i>
-              </div>
-            </StCommentDetails>
-          </StCommentList>
-        </StCommentBody>
-      </StComment>
-    </StContainer>
+  const navigate = useNavigate();
+  const {foodName} = useParams();
 
+  const [foods, setFoods] = useState(null)
+  const [comments, setComments] = useState(null)
+  
+  const fetchFoods = async () => {
+    const { data } = await axios.get(`https://ambojakulinesiaserver.vercel.app/food/detail/${foodName}`);
+    setFoods(data.data);
+  };
+
+  const fetchComments = async () => {
+    const { data } = await axios.get(`https://ambojakulinesiaserver.vercel.app/food/detail/${foodName}/comment`);
+    setComments(data.data);
+  };
+
+  useEffect(() => {
+    fetchFoods();
+    fetchComments();
+  }, []);
+
+
+
+  return (
+    <StContainer>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-6">
+            <div>
+              <StCardTitle>{foods?.foodName}</StCardTitle>
+              <StCardContainer>
+                {/* Carousel */}
+                <div className="col">
+                  <div id={foods?.foodName} className="carousel slide" data-bs-ride="carousel">
+                    <div className="carousel-inner">
+                      <div className="carousel-item active">
+                        <StCarouselImage src={foods?.foodImage[0]} className="d-block w-100" alt=""/>
+                      </div>
+                  
+                      if({foods?.foodImage.length > 1}) {
+                        foods?.foodImage.slice(1).map((foodImageElement,index) => {
+                            return (
+                              <div className="carousel-item" key={index}>
+                                <StCarouselImage src={foodImageElement} className="d-block w-100" alt=""/>
+                              </div>
+                            )
+                          })
+                      }
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target={"#"+foods?.foodName} data-bs-slide="prev">
+                      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target={"#"+foods?.foodName} data-bs-slide="next">
+                      <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span className="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Name & Likes */}
+                <StRegionLikes className="col">
+                  <div type="button" onClick={() => {navigate(`/food/region/${(foods?.region).split(" ").join("_")}`);}}>
+                    <h5>{foods?.region}</h5>
+                  </div>
+                  <div className="d-flex direction-row">
+                    <i className="bi bi-heart-fill px-2" style={{color:"red"}}></i>
+                    <p>{foods?.likes}</p>
+                  </div>
+                </StRegionLikes>
+
+                {/* Description */}
+                <StDescription className="col">
+                  {foods?.description}
+                </StDescription>
+              </StCardContainer>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <StCardTitle>Comment</StCardTitle>
+            <StCardContainer>
+              <StForm>
+                <StInput className="col-md-6"></StInput>
+                <button className="btn btn-primary col-md-3 mx-5 w-40">Add Comment</button>
+              </StForm>
+              <StCommentList>
+                {comments?.map((comment,index) => (
+                  <StCommentDetails className="d-flex direction-col" key={index}>
+                    <div>
+                      <h5>{comment.userName}</h5>
+                      <p>{comment.comment}</p>
+                    </div>
+                    <div className="w-30">
+                      <i className="bi bi-trash"></i>
+                      <i className="bi bi-pencil-square"></i>
+                    </div>
+                  </StCommentDetails>
+                ))}
+              </StCommentList>
+            </StCardContainer>
+          </div>
+        </div>
+      </div>
+    </StContainer>
   );
 };
 
@@ -138,64 +121,61 @@ const StContainer = styled.div`
   padding:  10px 20px 10px  ;
 `
 
-const StDetail = styled.div`
-  width: 50%;
-  padding:  10px 20px 10px  ;
+const StCardTitle = styled.div`
+  margin-top: 20px;
+  padding: 20px 30px;
 
-  display: flex;
-  flex-direction: column;
-`
+  background-color: #6d6d6d;
+  border-radius: 15px 15px 0px 0px;
 
-const StTitle = styled.h4`
-  padding: 10px;
+  color: white;
+  font-weight: bold;
   font-size: calc(1.275rem + 0.3vw);
 `
 
-const StCarouselImage = styled.img`
-  width: 80%;
-  margin-left: 10%;
-  padding-bottom: 20px;
-  max-height: 300px;
-  object-fit: cover; 
-`
+const StCardContainer = styled.div`
+  padding:  15px;
 
-const StComment = styled.div`  
-  width: 50%;
-  padding:  10px 20px 10px  ;
+  background-Color: #ececec;
 
-  display: flex;
-  flex-direction: column;
-`
-
-const StCommentTitle = styled.div`
-  margin-top: 20px;
-  padding: 20px 30px;
-  background-color: #6d6d6d;
-  border-radius: 15px 15px 0px 0px;
-  color: white;
-  font-weight: bold;
-`
-
-const StCommentBody = styled.div`
-  background-color: #ececec;
-  padding: 20px 30px;
+  border: 0px;
   border-radius: 0px 0px 15px 15px;
 `
 
+const StCarouselImage = styled.img`
+  width: 100%;
+  height: 30vh;
+
+  object-fit: cover; 
+`
+
+const StRegionLikes = styled.div`
+  height : 10vh;
+  display:flex;
+  flex-direction:column;
+`
+
+const StDescription = styled.div`
+  font-size: calc(1rem + 0.3vw);
+  height :30vh;
+  overflow-y: auto;
+`
+
 const StForm = styled.div`
-  
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
 `
 
 const StInput = styled.input`
-  width: 55%;
+  margin:auto;
   padding: 5px 15px;
   border: none;
   border-radius: 10px;  
 `
 
 const StCommentList = styled.div`
-  margin-top: 30px;
-  height:50vh;
+  height:60vh;
   overflow-y: scroll;
 
 `
