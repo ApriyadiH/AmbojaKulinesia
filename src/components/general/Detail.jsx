@@ -29,8 +29,6 @@ const Detail = () => {
     fetchComments();
   }, []);
 
-
-
   return (
     <StContainer>
       <div className="container-fluid">
