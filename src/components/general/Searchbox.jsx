@@ -9,7 +9,7 @@ const Searchbox = () => {
   return (
     <div className="container-fluid d-flex flex-row-reverse bg-light">
         <StInput type="text" placeholder="Search here"></StInput>
-        <StButton type="button"><i class="bi bi-search"></i></StButton>
+        <StButton type="button"><i className="bi bi-search"></i></StButton>
     </div>
   );
 };
