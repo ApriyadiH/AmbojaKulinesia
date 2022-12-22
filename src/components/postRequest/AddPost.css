@@ -7,7 +7,7 @@
 
 .addpost-header {
     width: 95%;
-    background-color: #6d6d6d;
+    background-color: #343a40;
     color: white;
     padding: 15px 30px;
     border-radius: 10px 10px 0px 0px;
@@ -15,7 +15,7 @@
 
 .addpost-body {
     width: 95%;
-    background-color: #ececec;
+    background-color: #f2f2f5;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -50,7 +50,7 @@
 }
 
 .addpost-input:focus {
-    outline-color: #6d6d6d;
+    outline-color: #343a40;
 }
 
 .img-input {
@@ -75,7 +75,7 @@
 
 .img-col i:hover {
     cursor: pointer;
-    color: #797979;
+    color: #343a40;
 }
 
 .additional-imgurl {
@@ -95,4 +95,15 @@
 .save-btn {
     margin: 5px auto;
     width: 45%;
+}
+
+.errormessage3 {
+    padding: 5px 10px;
+    margin: 0px auto 10px auto;
+    width: 95%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
 }
