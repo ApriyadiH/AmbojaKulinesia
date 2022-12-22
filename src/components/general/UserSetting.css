@@ -75,7 +75,7 @@
 }
 
 .pass-input {
-    width: 55%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     padding: 4px 20px 4px 15px;
@@ -95,3 +95,8 @@
     cursor: pointer;
 }
 
+.respass-cntr .row span {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
