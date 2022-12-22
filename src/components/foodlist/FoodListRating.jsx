@@ -31,8 +31,7 @@ const FoodListRating = () => {
         {foods?.map((food,indexutama) => {
           return (
             <StCard className="container-fluid" key={food.postId}>
-              <div className="row"  onClick={() => {navigate("/");}}>
-
+              <div className="row">
                 {/* Carousel */}
                 <div className="col-md-4">
                   <div id={food.foodName} className="carousel slide" data-bs-ride="carousel">
@@ -68,10 +67,10 @@ const FoodListRating = () => {
 
                 {/* Name, Region, Likes */}
                 <StNameLikes className="col-md-2">
-                  <div>
+                  <div type="button" onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
                     <h5>{food.foodName}</h5>
                   </div>
-                  <div>
+                  <div type="button" onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
                     <h5>{food.region}</h5>
                   </div>
                   <div className="d-flex direction-row">
@@ -81,7 +80,7 @@ const FoodListRating = () => {
                 </StNameLikes>
 
                 {/* Description */}
-                <StDescription className="col-md-6">
+                <StDescription className="col-md-6" type="button" onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
                   {food.description}
                 </StDescription>
               </div>
@@ -179,4 +178,6 @@ const StNameLikes = styled.div`
 
 const StDescription = styled.div`
   font-size: calc(1rem + 0.3vw);
+  height :40vh;
+  overflow-y: auto;
 `

@@ -1,13 +1,14 @@
 // Import library
 import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import styled from "styled-components";
 
 const FoodListRegion = () => {
+  const navigate = useNavigate();
   const {region} = useParams();
   const format_region = region.toLowerCase().split('_').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
 
@@ -32,7 +33,7 @@ const FoodListRegion = () => {
           <div className="container-fluid">
             <div className="row row-cols-md-4">
               {foods?.map((food) => (
-                  <div className="p-2" key={food.postId}>
+                  <div className="p-2" key={food.postId} onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
                     <StCard className="col">
                       <div className="row">
                         <div className="col-md-6">
