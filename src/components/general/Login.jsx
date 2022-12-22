@@ -1,56 +1,90 @@
-//import library
-import React, { useState } from 'react';
-
-//import component
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import './Login.css';
+import { userLogin } from '../../redux/modules/userSlice';
 
-const LoginForm = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+const loginSchema = yup.object({
+    email: yup.string().email("Email is not valid").required("Email is required"),
+    password: yup.string().required("Password is required")
+})
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // send a request to the server to verify the user's credentials
-        if (email === 'test@example.com' && password === 'password') {
-            // credentials are valid, redirect the user to the protected area of the app
-            window.location = '/protected';
+const Login = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const { errorMessage, isLoggedIn } = useSelector((state) => state.user)
+
+    const togglePass1 = () => {
+        let inputType = document.getElementById("password");
+        let icon = document.getElementById("passinput-icon1");
+        if (inputType.type === 'password') {
+            inputType.type = 'text';
+            icon.className = 'bi bi-eye-fill';
         } else {
-            // credentials are invalid, show an error message
-            setError('Invalid email or password');
+            inputType.type = 'password';
+            icon.className = 'bi bi-eye-slash-fill';
         }
     };
 
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm({
+        resolver: yupResolver(loginSchema)
+    });
+
+    const login = (values) => {
+        dispatch(userLogin(values));
+    }
+
+    if (isLoggedIn) {
+        navigate("/");
+    }
 
     return (
         <div>
-            <div className="container">
-                <div className='userinfo-container header-cntr'>
-                    <h4>Login</h4>
-                </div>
-                <div classname="userinfo-container-content-cntr">
-                    <form onSubmit={handleSubmit}>
-                        <div class="container">
-                            <div class="custom-box">
-                                <label class="label">
-                                    Email:
-                                    <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-                                </label>
-                                <br />
-                                <label>
-                                    Password:
-                                    <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-                                </label>
-                                <br />
-                                {error && <p>{error}</p>}
-                                <button type="submit">Log in</button>
-                            </div>
+            <div className='login-container header-cntr'>
+                <h4>Login</h4>
+            </div>
+
+            <div className='login-container content-cntr' id='myprofile'>
+                {errorMessage && <div className='errormessage1'>{errorMessage}</div>}
+
+                <form className='login' onSubmit={handleSubmit(login)}>
+                    <div className='row'>
+                        <label className='col-3'>Email</label>
+                        <input className='col-9 login-input2' id="email" name="email" {...register("email")} />
+                        <span className='col-3'></span>
+                        <span className='col-9'>{errors?.email?.message}</span>
+                    </div>
+                    <div className='row'>
+                        <label className='col-3'>Password</label>
+                        <div className='col-9 pass-input2'>
+                            <input type='password' id='password' className='respass-input' {...register("password")} />
+                            <i id='passinput-icon1' className="bi bi-eye-slash-fill" onClick={togglePass1}></i>
                         </div>
-                    </form>
+                        <span className='col-3'></span>
+                        <span className='col-9'>{errors?.password?.message}</span>
+                    </div>
+                    <div className='login-btn my-2 '>
+                        <button type='submit' className='btn btn-primary btn-width'>Login</button>
+                    </div>
+                </form>
+                <div className='linktoregister'>
+                    <span>Doesn't have an account?</span>
+                    <Link to='/Register'>Create account</Link>
                 </div>
             </div>
-        </div>
-    );
-}
+        </div >
+    )
+};
 
-export default LoginForm;
+export default Login;

@@ -1,113 +1,118 @@
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.login-container {
+    width: 35%;
+    padding: 20px 40px;
+    margin: auto;
+}
 
-form {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #333333;
-  }
-
-  .custom-box {
-    border: 2px solid black;
-    padding: 40px;
-    background-color: lightgray;
-    width: 500px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  input[type="email"],
-  input[type="password"] {
-    width: 70%;
-    padding: 8px 12px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  input[type="submit"] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #45a049;
-  }
-
-  .userinfo-container {
-    width: 45%;
-    padding: 20px 30px;
+.register-container {
+    width: 40%;
+    padding: 20px 40px;
     margin: auto;
 }
 
 .header-cntr {
     margin-top: 50px;
-    background-color: #6d6d6d;
+    background-color: #343a40;
     border-radius: 15px 15px 0px 0px;
     color: white
 }
 
 .content-cntr {
-    background-color: #ececec;
+    background-color: #f2f2f5;
     border-radius: 0px 0px 15px 15px;
 }
 
-.userinfo {
+.login {
     align-items: center;
     margin-top: 15px;
 }
 
-.userinfo-container label {
+.login .row {
+    margin-bottom: 20px;
+}
+
+.login .row span {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.login-container label {
     font-weight: bold;
 }
 
-.userinfo-btn {
+.register-container label {
+    font-weight: bold;
+}
+
+.login-btn {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
 }
 
-.userinfo-btn div button {
-    margin-left: 10px;
-}
-
-.userinfo-input {
-    width: 55%;
+.login-input2 {
+    width: 70%;
     padding: 5px 15px;
     border: none;
     border-radius: 10px;
 }
 
-.userinfo-input:focus {
-    outline-color: #6d6d6d;
+.login-input2:focus {
+    outline-color: #343a40;
 }
 
-.reset-pass {
-    margin: 30px 0px 15px;
+.login-input3 {
+    width: 65%;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
 }
 
-.respass-cntr {
+.login-input3:focus {
+    outline-color: #343a40;
+}
+
+.pass-input2 {
+    width: 70%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 20px 4px 15px;
+    background-color: white;
+    border-radius: 10px;
 }
 
-.respass {
-    margin: 15px 0px;
-    align-items: center;
+.pass-input2:focus-within {
+    border: 2px solid #343a40;
+}
+
+.pass-input2 i {
+    font-size: 20px;
+}
+
+.pass-input2 i:hover {
+    cursor: pointer;
+}
+
+.pass-input3 {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 20px 4px 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.pass-input3:focus-within {
+    border: 2px solid #343a40;
+}
+
+.pass-input3 i {
+    font-size: 20px;
+}
+
+.pass-input3 i:hover {
+    cursor: pointer;
 }
 
 .respass-input {
@@ -116,31 +121,41 @@ form {
     border: none;
 }
 
-.respass-btn {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    margin: 25px 0px 15px 0px;
+.btn-width {
+    width: 98%
 }
 
-.pass-input {
-    width: 52%;
+.btn-width2 {
+    width: 100%
+}
+
+.linktoregister {
     display: flex;
-    justify-content: space-between;
-    padding: 4px 20px 4px 15px;
-    background-color: white;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.errormessage1 {
+    padding: 5px 0px;
+    width: 98%;
+    background-color: red;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
     border-radius: 10px;
+    font-weight: 500;
 }
 
-.pass-input:focus-within {
-    border: 2px solid #6d6d6d;
+.errormessage2 {
+    padding: 5px 10px;
+    width: 100%;
+    background-color: red;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
 }
-
-.pass-input i {
-    font-size: 20px;
-}
-
-.pass-input i:hover {
-    cursor: pointer;
-}
-

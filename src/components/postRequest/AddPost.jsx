@@ -73,12 +73,6 @@ const AddPost = () => {
         })
     };
 
-    // testing
-    // console.log(foodPosts);
-    // console.log('images', images);
-    // console.log('imageUrls', imageUrls);
-    // console.log(requestData);
-
     return (
         <div className='addpost-container' id='addpost'>
             <div className='addpost-header'>
@@ -123,6 +117,7 @@ const AddPost = () => {
                         <option value='West Papua'>West Papua</option>
                         <option value='West Sulawesi'>West Sulawesi</option>
                         <option value='West Sumatra'>West Sumatra</option>
+                        <option value='Multiple Region'>Multiple Region</option>
                     </select>
                 </div>
                 <div className='row'>
