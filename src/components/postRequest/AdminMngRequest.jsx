@@ -134,6 +134,7 @@ const AdminMngRequest = () => {
                     <h5>Manage Request</h5>
                 </div>
                 <div className='request-body' id='req-unavailable' style={{ 'display': 'none' }}>
+                    {errMessage && <div className='errormessage2'>{errMessage}</div>}
                     <h6>There is no request...</h6>
                 </div>
                 <div className='request-body' id='req-available'>
