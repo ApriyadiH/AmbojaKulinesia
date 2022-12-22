@@ -11,18 +11,19 @@ const FoodListRegion = () => {
   const {region} = useParams();
   const format_region = region.toLowerCase().split('_').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
 
-  const [foods, setFoods] = useState(
-    []
-  );
+  const [foods, setFoods] = useState(null);
 
-  const fetchFoods = async (format_region) => {
-    const { data } = await axios.get(`https://ambojakulinesiaserver.vercel.app/food/region/${format_region}`);
-    setFoods(data);
+  const fetchFoods = async (region) => {
+    const { data } = await axios.get(`https://ambojakulinesiaserver.vercel.app/food/region/${region}`);
+    setFoods(data.data);
   };
 
+  console.log(foods)
+  console.log(format_region)
+
   useEffect(() => {
-    fetchFoods(format_region);
-  }, []);
+    fetchFoods(region);
+  }, [region]);
 
   return (
     <StContainer className="container-fluid">
@@ -33,8 +34,7 @@ const FoodListRegion = () => {
         <StScrollBar>
           <div className="container-fluid">
             <div className="row row-cols-md-4">
-              {foods.map((food,index) => {
-                return (
+              {foods?.map((food) => (
                   <div className="p-2" key={food.postId}>
                     <StCard className="col">
                       <div className="row">
@@ -54,7 +54,7 @@ const FoodListRegion = () => {
                     </StCard>
                   </div>
                 )
-              })}
+              )}
             </div>
           </div>
         </StScrollBar>
