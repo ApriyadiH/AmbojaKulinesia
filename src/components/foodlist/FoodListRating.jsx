@@ -1,6 +1,6 @@
 // Import library
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -10,8 +10,8 @@ import styled from "styled-components";
 const FoodListRating = () => {
   const [foods, setFoods] = useState(null)
   const fetchFoods = async () => {
-    const { data } = await axios.get("https://ambojakulinesiaserver.vercel.app//food/rating");
-    setFoods(data);
+    const { data } = await axios.get("https://ambojakulinesiaserver.vercel.app/food/rating");
+    setFoods(data.data);
   };
 
   useEffect(() => {
