@@ -7,7 +7,6 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, stillLogin } from "../../redux/modules/userSlice";
 
-
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

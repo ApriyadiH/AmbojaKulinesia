@@ -3,14 +3,33 @@ import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import React, { useState } from 'react';
 import './UserSetting.css';
+import { useSelector } from 'react-redux';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const passwordRules = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_]).{8,20}$/;
+
+const passwordSchema = yup.object({
+    password: yup
+        .string()
+        .matches(passwordRules, "Password must contain at least 8 characters, one uppercase, and one number")
+        .required("Password is required"),
+    confirmPassword: yup
+        .string()
+        .oneOf([yup.ref("password"), null], "Password must match")
+        .required("Required")
+})
 
 const UserSetting = () => {
-    const usernameFromRedux = 'User1';
-    const emailFromRedux = 'user1@gmail.com';
-    const [username, setUsername] = useState(usernameFromRedux);
-    const [email, setEmail] = useState(emailFromRedux);
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const { username, email } = useSelector((state) => state.user);
+    const [username1, setUsername1] = useState(username);
+    const [email1, setEmail1] = useState(email);
+    const [errMessage, setErrMessage] = useState('');
+    const [errMessage2, setErrMessage2] = useState('');
 
     const editUsername = () => {
         document.getElementById("username").style.display = 'none';
@@ -20,17 +39,44 @@ const UserSetting = () => {
     const cancelEditUsername = () => {
         document.getElementById("username").style.display = 'flex';
         document.getElementById("username-edit").style.display = 'none';
-        setUsername(usernameFromRedux);
+        setUsername1(username);
     };
 
-    const saveNewUsername = () => {
-        // axios disini
-        document.getElementById("username").style.display = 'flex';
-        document.getElementById("username-edit").style.display = 'none';
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = user.token;
+
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    const saveNewUsername = (username) => {
+        axios.patch(
+            "https://ambojakulinesiaserver.vercel.app/user/username",
+            // "http://localhost:8000/user/username",
+            { username: username },
+            config
+        ).then((response) => {
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setErrMessage('');
+            setUsername1(username);
+            document.getElementById("username").style.display = 'flex';
+            document.getElementById("username-edit").style.display = 'none';
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
+        })
     };
 
     const onChangeUsername = (event) => {
-        setUsername(event.target.value);
+        setUsername1(event.target.value);
     };
 
     const editEmail = () => {
@@ -41,17 +87,37 @@ const UserSetting = () => {
     const cancelEditEmail = () => {
         document.getElementById("email").style.display = 'flex';
         document.getElementById("email-edit").style.display = 'none';
-        setEmail(emailFromRedux);
+        setEmail1(email);
     };
 
-    const saveNewEmail = () => {
-        // axios disini
-        document.getElementById("email").style.display = 'flex';
-        document.getElementById("email-edit").style.display = 'none';
+    const saveNewEmail = (email) => {
+        axios.patch(
+            "https://ambojakulinesiaserver.vercel.app/user/email",
+            // "http://localhost:8000/user/email",
+            { email: email },
+            config
+        ).then((response) => {
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setErrMessage('');
+            setEmail1(email);
+            document.getElementById("email").style.display = 'flex';
+            document.getElementById("email-edit").style.display = 'none';
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
+        })
     };
 
     const onChangeEmail = (event) => {
-        setEmail(event.target.value)
+        setEmail1(event.target.value)
     };
 
     const resetPass = () => {
@@ -68,30 +134,45 @@ const UserSetting = () => {
         document.getElementById("pass-input2").type = 'password';
         document.getElementById("passinput-icon1").className = 'bi bi-eye-slash-fill';
         document.getElementById("passinput-icon2").className = 'bi bi-eye-slash-fill';
-        setPassword('');
-        setConfirmPassword('');
     };
 
-    const saveNewPass = () => {
-        // axios disini
-        document.getElementById("myprofile").style.display = 'block';
-        document.getElementById("resetpass").style.display = 'none';
-        document.getElementById("userinfo-header").innerHTML = 'My Profile';
-        document.getElementById("pass-input1").type = 'password';
-        document.getElementById("pass-input2").type = 'password';
-        document.getElementById("passinput-icon1").className = 'bi bi-eye-slash-fill';
-        document.getElementById("passinput-icon2").className = 'bi bi-eye-slash-fill';
-        setPassword('');
-        setConfirmPassword('');
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm({
+        resolver: yupResolver(passwordSchema)
+    });
+
+    const saveNewPass = (values) => {
+        axios.patch(
+            "https://ambojakulinesiaserver.vercel.app/user/password",
+            // "http://localhost:8000/user/password",
+            values,
+            config
+        ).then((response) => {
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setErrMessage2('');
+            document.getElementById("myprofile").style.display = 'block';
+            document.getElementById("resetpass").style.display = 'none';
+            document.getElementById("userinfo-header").innerHTML = 'My Profile';
+            document.getElementById("pass-input1").type = 'password';
+            document.getElementById("pass-input2").type = 'password';
+            document.getElementById("passinput-icon1").className = 'bi bi-eye-slash-fill';
+            document.getElementById("passinput-icon2").className = 'bi bi-eye-slash-fill';
+        }).catch((error) => {
+            setErrMessage2(error.response.data.message);
+        })
     }
-
-    const newPassword = (event) => {
-        setPassword(event.target.value);
-    };
-
-    const confirmPass = (event) => {
-        setConfirmPassword(event.target.value);
-    };
 
     const togglePass1 = () => {
         let inputType = document.getElementById("pass-input1");
@@ -124,62 +205,69 @@ const UserSetting = () => {
             </div>
 
             <div className='userinfo-container content-cntr' id='myprofile'>
+                {errMessage && <div className='errormessage2'>{errMessage}</div>}
                 <div className='userinfo row'>
                     <label className='col-2'>Username</label>
                     <div className='col-10 userinfo-btn' id='username'>
-                        <div>{username}</div>
+                        <div>{username1}</div>
                         <div>
                             <button className='btn btn-secondary' onClick={editUsername}>Edit</button>
                         </div>
                     </div>
                     <div className='col-10 userinfo-btn' id='username-edit' style={{ 'display': 'none' }}>
-                        <input value={username} className='userinfo-input' onChange={onChangeUsername} />
+                        <input value={username1} className='userinfo-input' onChange={onChangeUsername} required/>
                         <div>
                             <button className='btn btn-danger' onClick={cancelEditUsername}>Cancel</button>
-                            <button className='btn btn-primary' onClick={saveNewUsername}>Save</button>
+                            <button className='btn btn-primary' onClick={() => { saveNewUsername(username1) }}>Save</button>
                         </div>
                     </div>
                 </div>
                 <div className='userinfo row'>
                     <label className='col-2'>Email</label>
                     <div className='col-10 userinfo-btn' id='email'>
-                        <div>{email}</div>
+                        <div>{email1}</div>
                         <div>
                             <button className='btn btn-secondary' onClick={editEmail}>Edit</button>
                         </div>
                     </div>
                     <div className='col-10 userinfo-btn' id='email-edit' style={{ 'display': 'none' }}>
-                        <input type='email' value={email} className='userinfo-input' onChange={onChangeEmail} />
+                        <input type='email' value={email1} className='userinfo-input' onChange={onChangeEmail} required/>
                         <div>
                             <button className='btn btn-danger' onClick={cancelEditEmail}>Cancel</button>
-                            <button className='btn btn-primary' onClick={saveNewEmail}>Save</button>
+                            <button className='btn btn-primary' onClick={() => { saveNewEmail(email1) }}>Save</button>
                         </div>
                     </div>
                 </div>
                 <button className='btn btn-secondary reset-pass' onClick={resetPass}>Reset Password</button>
             </div>
 
-            <div className='userinfo-container content-cntr respass-cntr' id='resetpass' style={{ 'display': 'none' }}>
+            <form onSubmit={handleSubmit(saveNewPass)} className='userinfo-container content-cntr respass-cntr' id='resetpass' style={{ 'display': 'none' }}>
+                {errMessage2 && <div className='errormessage2'>{errMessage2}</div>}
                 <div className='respass row'>
                     <label className='col-4'>New Password</label>
                     <div className='col-8 pass-input'>
-                        <input type='password' id='pass-input1' value={password} className='respass-input2' onChange={newPassword} required />
+                        <input type='password' id='pass-input1' className='respass-input2' {...register("password")} />
                         <i id='passinput-icon1' className="bi bi-eye-slash-fill" onClick={togglePass1}></i>
                     </div>
+                    <span className='col-4'></span>
+                    <span className='col-8'>{errors?.password?.message}</span>
                 </div>
                 <div className='respass row'>
                     <label className='col-4'>Confirm Password</label>
                     <div className='col-8 pass-input'>
-                        <input type='password' id='pass-input2' value={confirmPassword} className='respass-input2' onChange={confirmPass} required />
+                        <input type='password' id='pass-input2' className='respass-input2' {...register("confirmPassword")} />
                         <i id='passinput-icon2' className="bi bi-eye-slash-fill" onClick={togglePass2}></i>
                     </div>
+                    <span className='col-4'></span>
+                    <span className='col-8'>{errors?.confirmPassword?.message}</span>
                 </div>
 
                 <div className='respass-btn'>
                     <button className='btn btn-danger' onClick={cancelResetPass}>Cancel</button>
-                    <button type='submit' className='btn btn-primary' onClick={saveNewPass}>Save New Password</button>
+                    <button type='submit' className='btn btn-primary'>Save New Password</button>
                 </div>
-            </div>
+            </form>
+            <ToastContainer />
         </div >
     )
 };
