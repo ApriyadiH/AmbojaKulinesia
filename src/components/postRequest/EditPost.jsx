@@ -5,6 +5,9 @@ import nextId from "react-id-generator";
 import { useDispatch, useSelector } from 'react-redux';
 import { cancelEdit, deleteUrl, saveEdit } from '../../redux/modules/editPostSlice';
 import './AddPost.css';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditPost = () => {
     const imgUrlId = nextId();
@@ -28,6 +31,8 @@ const EditPost = () => {
 
     const imageUrlList = imageUrls.slice(1);
     const [imageList, setImageList] = useState([]);
+
+    const [errMessage, setErrMessage] = useState('');
 
     const display = () => {
         document.getElementById("editpost").style.display = editpostDisplay;
@@ -79,12 +84,48 @@ const EditPost = () => {
         UrlList = [...UrlList, url]
     };
     for (const url of imageList) {
-        UrlList = [...UrlList, url.imgUrl]
+        UrlList = [...UrlList, url.imageUrl]
     };
 
-    const saveEditPost = () => {
-        // axios put disini
-        dispatch(saveEdit())
+    const bodyData = {
+        postId: postId,
+        foodName: posts.foodName,
+        region: posts.region,
+        description: posts.description,
+        imageUrls: UrlList
+    };
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = user.token;
+
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    const saveEditPost = (event) => {
+        event.preventDefault();
+        axios.put(
+            "https://ambojakulinesiaserver.vercel.app/post",
+            // "http://localhost:8000/api/post",
+            bodyData,
+            config
+        ).then((response) => {
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setErrMessage('');
+            setImageList([]);
+            dispatch(saveEdit())
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
+        })
     };
 
     const cancelEditPost = () => {
@@ -97,6 +138,7 @@ const EditPost = () => {
                 <h5>Edit Culinary</h5>
             </div>
             <form className='addpost-body'>
+                {errMessage && <div className='errormessage3'>{errMessage}</div>}
                 <div className='row'>
                     <label className='col-4'>Region</label>
                     <select className='col-8 select-region' name='region' value={posts.region} onChange={onChangeValue}>
@@ -162,7 +204,7 @@ const EditPost = () => {
                             <label className='col-4'>Image</label>
                             <div className='col-8 img-col'>
                                 <div className='imgurl'>{img}</div>
-                                <i className="bi bi-dash-circle-fill" onClick={() => { deleteImgUrl(index + 1)}}></i>
+                                <i className="bi bi-dash-circle-fill" onClick={() => { deleteImgUrl(index + 1) }}></i>
                             </div>
                         </div>
                     )
@@ -171,12 +213,12 @@ const EditPost = () => {
                         <div className='row additional-imgurl' key={`id-${img.imageId}`}>
                             <label className='col-4'>Image</label>
                             <div className='col-8 img-col'>
-                                <input 
-                                className='addpost-input img-input' 
-                                placeholder='Put image URL here' 
-                                value={img.imageUrl} 
-                                onChange={event => handleUrlChange(event, img.imageId)} 
-                                required 
+                                <input
+                                    className='addpost-input img-input'
+                                    placeholder='Put image URL here'
+                                    value={img.imageUrl}
+                                    onChange={event => handleUrlChange(event, img.imageId)}
+                                    required
                                 />
                                 <i className="bi bi-dash-circle-fill" onClick={() => { reduceImageUrl(img.imageId) }}></i>
                             </div>
@@ -193,6 +235,7 @@ const EditPost = () => {
                     <button type='submit' className='btn btn-primary save-btn' onClick={saveEditPost}>Save</button>
                 </div>
             </form>
+            <ToastContainer />
         </div>
     )
 };

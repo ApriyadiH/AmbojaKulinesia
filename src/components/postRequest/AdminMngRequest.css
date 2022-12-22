@@ -11,7 +11,7 @@
 
 .request-header {
     width: 80%;
-    background-color: #6d6d6d;
+    background-color: #343a40;
     color: white;
     padding: 15px 30px;
     border-radius: 10px 10px 0px 0px;
@@ -19,7 +19,7 @@
 
 .request-body {
     width: 80%;
-    background-color: #ececec;
+    background-color: #f2f2f5;
     height: 68vh;
     padding: 35px 30px 50px 30px;
     border-radius: 0px 0px 10px 10px;
@@ -41,7 +41,7 @@
     align-items: center;
     justify-content: space-between;
     width: 90%;
-    background-color: #d1d1d1;
+    background-color: hsla(210, 10%, 23%, 0.08);
     padding: 5px 20px;
     font-weight: 500;
 }
@@ -78,7 +78,7 @@
 
 .detail-header {
     width: 95%;
-    background-color: #6d6d6d;
+    background-color: #343a40;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -92,12 +92,12 @@
 
 .detail-header i:hover {
     cursor: pointer;
-    color: #dbdbdb;
+    color: hsla(210, 10%, 23%, 0.08);
 }
 
 .detail-body {
     width: 95%;
-    background-color: #ececec;
+    background-color: #f2f2f5;
     padding: 30px 30px 50px;
     border-radius: 0px 0px 10px 10px;
     display: flex;
@@ -106,7 +106,7 @@
 
 .region-box {
     padding: 5px 10px;
-    background-color: #d1d1d1;
+    background-color: hsla(210, 10%, 23%, 0.08);
     width: fit-content;
     font-weight: 500;
     margin-top: 10px;

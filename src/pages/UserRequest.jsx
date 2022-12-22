@@ -12,10 +12,10 @@ const UserRequest = () => {
     return (
         <div className="container">
             <div className='row'>
-                <div className="col">
+                <div className="col-6">
                     <UserRequestList />
                 </div>
-                <div className="col">
+                <div className="col-6">
                     <AddPost />
                     <EditPost />
                 </div>
