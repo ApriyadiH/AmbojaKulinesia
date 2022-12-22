@@ -5,88 +5,37 @@ import React, { useEffect } from 'react';
 import './UserRequestList.css';
 import { useDispatch } from 'react-redux';
 import { editPost } from '../../redux/modules/editPostSlice';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 
 const UserRequestList = () => {
     const dispatch = useDispatch();
 
-    // ini nanti diganti pakai axios get
-    const requestLists = [
-        {
-            postId: 'xuhd272dkwjkfh',
-            foodName: 'Pempek',
-            region: 'South Sumatra',
-            imageUrls: [
-                'https://www.piknikdong.com/wp-content/uploads/2021/02/Cara-Membuat-Pempek.jpg',
-                'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/09/04/4062442039.jpeg',
-                'https://img.okezone.com/content/2020/12/03/298/2321042/resep-pempek-dos-udang-rebon-rasanya-jos-n1FGhLyt0x.jpg'
-            ],
-            description: 'Pempek is a savoury Indonesian fish cake delicacy, made of fish and tapioca, from Palembang, South Sumatra.',
-            status: 'approved'
-        },
-        {
-            postId: 'xsa27dhsj28d',
-            foodName: 'Nasi Pecel Madiun',
-            region: 'East Java',
-            imageUrls: [
-                'url1',
-                'url2'
-            ],
-            description: 'Nasi pecel is made from rice, vegetables, peanut sauce, and soybeancake.',
-            status: 'approved'
-        },
-        {
-            postId: 'daqjj381qsqad',
-            foodName: 'Batagor',
-            region: 'West Java',
-            imageUrls: [
-                'url1',
-                'url2'
-            ],
-            description: 'Batagor is well known food in Bandung.',
-            status: 'approved'
-        },
-        {
-            postId: 'daqjj3sswsqad',
-            foodName: 'Batagor1',
-            region: 'West Java',
-            imageUrls: [
-                'url1'
-            ],
-            description: 'Batagor is well known food in Bandung.',
-            status: 'approved'
-        },
-        {
-            postId: 'daqj24e2sqad',
-            foodName: 'Batagor2',
-            region: 'West Java',
-            imageUrls: [
-                'url1'
-            ],
-            description: 'Batagor is well known food in Bandung.',
-            status: 'approved'
-        },
-        {
-            postId: 'daq3r31qsqad',
-            foodName: 'Batagor3',
-            region: 'West Java',
-            imageUrls: [
-                'url1'
-            ],
-            description: 'Batagor is well known food in Bandung.',
-            status: 'approved'
-        },
-        {
-            postId: 'dhwyqu2729',
-            foodName: 'Croissant',
-            region: 'West JavaSpecial Capital Region of Jakarta',
-            imageUrls: [
-                'url1',
-                'url2'
-            ],
-            description: 'Croissant is a modern food loved by many Indonesian people.',
-            status: 'rejected'
-        }
-    ];
+    const [requestLists, setRequestLists] = useState([]);
+    const [errMessage, setErrMessage] = useState('');
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = user.token;
+
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    useEffect(() => {
+        axios.get(
+            "https://ambojakulinesiaserver.vercel.app/user/request",
+            // "http://localhost:8000/api/user/request",
+            config
+        ).then((response) => {
+            const { data } = response.data
+            setRequestLists(data);
+            setErrMessage('');
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
+        })
+    });
 
     const approvedReq = requestLists.filter((req) => (req.status === 'approved'));
     const pendingReq = requestLists.filter((req) => (req.status === 'pending'));
@@ -133,7 +82,28 @@ const UserRequestList = () => {
     };
 
     const deleteRequest = (postId) => {
-        //axios delete disini
+        axios.delete(
+            "https://ambojakulinesiaserver.vercel.app/post",
+            // "http://localhost:8000/api/post",
+            {
+                data: { postId: postId },
+                headers: { Authorization: `Bearer ${token}` }
+            }
+        ).then((response) => {
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setErrMessage('');
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
+        })
     }
 
     return (
@@ -142,6 +112,7 @@ const UserRequestList = () => {
                 <h5>Request List</h5>
             </div>
             <div className='userRequest-body'>
+                {errMessage && <div className='errormessage3'>{errMessage}</div>}
                 <h5>Approved</h5>
                 <div id='no-approved' style={{ 'display': 'none' }}>
                     <h6>There is no approved request...</h6>
@@ -154,7 +125,7 @@ const UserRequestList = () => {
                                 <div>{request.foodName}</div>
                                 <div>
                                     <i className="bi bi-pencil-square" onClick={() => { editRequest(request) }}></i>
-                                    <i className="bi bi-trash" onClick={() => {deleteRequest(request.postId)}}></i>
+                                    <i className="bi bi-trash" onClick={() => { deleteRequest(request.postId) }}></i>
                                 </div>
                             </div>
                         </div>
@@ -187,13 +158,14 @@ const UserRequestList = () => {
                             <div className='content-row'>
                                 <div>{request.foodName}</div>
                                 <div>
-                                    <i className="bi bi-trash" onClick={() => {deleteRequest(request.postId)}}></i>
+                                    <i className="bi bi-trash" onClick={() => { deleteRequest(request.postId) }}></i>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 };
