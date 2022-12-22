@@ -1,5 +1,6 @@
 // Import library
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -8,6 +9,8 @@ import styled from "styled-components";
 
 
 const FoodListRating = () => {
+  const navigate = useNavigate();
+
   const [foods, setFoods] = useState(null)
   const fetchFoods = async () => {
     const { data } = await axios.get("https://ambojakulinesiaserver.vercel.app/food/rating");
@@ -28,7 +31,7 @@ const FoodListRating = () => {
         {foods?.map((food,indexutama) => {
           return (
             <StCard className="container-fluid" key={food.postId}>
-              <div className="row">
+              <div className="row"  onClick={() => {navigate("/");}}>
 
                 {/* Carousel */}
                 <div className="col-md-4">
