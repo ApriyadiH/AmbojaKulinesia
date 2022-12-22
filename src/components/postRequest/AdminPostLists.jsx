@@ -30,7 +30,6 @@ const AdminPostsLists = () => {
             config
         ).then((response) => {
             const { data } = response.data
-            console.log(response)
             setPostLists(data);
             setErrMessage('');
         }).catch((error) => {
