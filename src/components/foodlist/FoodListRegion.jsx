@@ -9,63 +9,25 @@ import styled from "styled-components";
 
 const FoodListRegion = () => {
   const {region} = useParams();
-  const foods = [
-    {
-      postId:"1", 
-      foodName: "Surabi Bandungggg ggggggggggggggggg ggggggggggg gggggggg gggg gggg g ggggggg",
-      likes: "60",
-      foodImage: "https://cdn-cas.orami.co.id/parenting/images/5-surabi.width-1000.jpg"
-    },
-    {
-      postId:"2",
-      foodName: "Batagor",
-      likes: "90",
-      foodImage: "https://cdn-cas.orami.co.id/parenting/images/makanan_khas_Sunda-batagor.width-1000.jpg"
-    },
-    {
-      postId:"3",
-      foodName: "Cimol",
-      likes: "60",
-      foodImage: "https://cdn-cas.orami.co.id/parenting/images/2-cilok.width-1000.jpg"
-    },
-    {
-      postId:"4",
-      foodName: "Mie Kocok Bandung",
-      likes: "40",
-      foodImage: "https://cdn-cas.orami.co.id/parenting/images/mie_kocok2.width-1000.jpg"
-    },
-    {
-      postId:"5",
-      foodName: "Seblak",
-      likes: "70",
-      foodImage: "https://cdn-cas.orami.co.id/parenting/images/seblak_1.width-1000.jpg"
-    },
-    {
-      postId:"6",
-      foodName: "Bandros",
-      likes: "20",
-      foodImage: "https://cdn-cas.orami.co.id/parenting/images/Bandros.width-1000.jpg"
-    },
-  ]
+  const format_region = region.toLowerCase().split('_').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
 
+  const [foods, setFoods] = useState(
+    []
+  );
 
-  // const [foods, setFoods] = useState(
-  //   []
-  // );
+  const fetchFoods = async (format_region) => {
+    const { data } = await axios.get(`https://ambojakulinesiaserver.vercel.app/food/region/${format_region}`);
+    setFoods(data);
+  };
 
-  // const fetchFoods = async () => {
-  //   const { data } = await axios.get("http://localhost:3001/ayam");
-  //   setFoods(data);
-  // };
-
-  // useEffect(() => {
-  //   fetchFoods();
-  // }, []);
+  useEffect(() => {
+    fetchFoods(format_region);
+  }, []);
 
   return (
     <StContainer className="container-fluid">
       <StCardTitle>
-        <h4>{region.toLowerCase().split('_').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ')}</h4>
+        <h4>{format_region}</h4>
       </StCardTitle>
       <StCardContainer>
         <StScrollBar>
