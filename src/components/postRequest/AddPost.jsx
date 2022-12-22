@@ -3,7 +3,10 @@ import 'bootstrap/dist/js/bootstrap.js';
 import React, { useEffect, useState } from "react";
 import nextId from "react-id-generator";
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 import './AddPost.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddPost = () => {
     const imgUrlInputId = nextId();
@@ -16,6 +19,8 @@ const AddPost = () => {
         foodName: '',
         description: ''
     });
+
+    const [errMessage, setErrMessage] = useState('');
 
     const { addpostDisplay } = useSelector((state) => state.editPost);
 
@@ -60,16 +65,42 @@ const AddPost = () => {
         setFoodPosts({ ...foodPosts, [name]: value })
     };
 
-    // const requestData = {...foodPosts, imageUrls: imageUrls};
+    const requestData = { ...foodPosts, imageUrls: imageUrls };
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = user.token;
 
-    const submitHandler = () => {
-        // axios post ke tabel FoodPost dan images pakai data requestData
-        setImageUrl('');
-        setImages([]);
-        setFoodPosts({
-            region: '',
-            foodName: '',
-            description: ''
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        axios.post(
+            "https://ambojakulinesiaserver.vercel.app/post",
+            // "http://localhost:8000/api/post",
+            requestData,
+            config
+        ).then((response) => {
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setImageUrl('');
+            setImages([]);
+            setFoodPosts({
+                region: '',
+                foodName: '',
+                description: ''
+            });
+            setErrMessage('');
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
         })
     };
 
@@ -79,6 +110,7 @@ const AddPost = () => {
                 <h5>Add Culinary</h5>
             </div>
             <form className='addpost-body' onSubmit={submitHandler}>
+                {errMessage && <div className='errormessage3'>{errMessage}</div>}
                 <div className='row'>
                     <label className='col-4'>Region</label>
                     <select className='col-8 select-region' name='region' value={foodPosts.region} onChange={onChangeHandler}>
@@ -109,8 +141,8 @@ const AddPost = () => {
                         <option value='South Kalimantan'>South Kalimantan</option>
                         <option value='South Sulawesi'>South Sulawesi</option>
                         <option value='South Sumatra'>South Sumatra</option>
-                        <option value='Special Capital Region of Jakarta'>Special Capital Region of Jakarta</option>
-                        <option value='Special Region of Yogyakarta'>Special Region of Yogyakarta</option>
+                        <option value='Special Capital Region of Jakarta'>Jakarta</option>
+                        <option value='Special Region of Yogyakarta'>Yogyakarta</option>
                         <option value='West Java'>West Java</option>
                         <option value='West Kalimantan'>West Kalimantan</option>
                         <option value='West Nusa Tenggara'>West Nusa Tenggara</option>
@@ -149,6 +181,7 @@ const AddPost = () => {
                 </div>
                 <button type='submit' className='btn btn-primary submit-btn'>Submit</button>
             </form>
+            <ToastContainer />
         </div>
     )
 };
