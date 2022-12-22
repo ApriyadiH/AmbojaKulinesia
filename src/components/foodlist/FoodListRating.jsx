@@ -70,7 +70,7 @@ const FoodListRating = () => {
                   <div type="button" onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
                     <h5>{food.foodName}</h5>
                   </div>
-                  <div type="button" onClick={() => {navigate(`/food/detail/${food.foodName}`);}}>
+                  <div type="button" onClick={() => {navigate(`/food/region/${(food.region).split(" ").join("_")}`);}}>
                     <h5>{food.region}</h5>
                   </div>
                   <div className="d-flex direction-row">
