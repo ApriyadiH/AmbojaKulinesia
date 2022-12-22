@@ -41,7 +41,7 @@ const Login = () => {
         resolver: yupResolver(loginSchema)
     });
 
-    const login = async (values) => {
+    const login = (values) => {
         dispatch(userLogin(values));
     }
 

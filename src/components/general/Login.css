@@ -4,6 +4,12 @@
     margin: auto;
 }
 
+.register-container {
+    width: 40%;
+    padding: 20px 40px;
+    margin: auto;
+}
+
 .header-cntr {
     margin-top: 50px;
     background-color: #343a40;
@@ -35,6 +41,10 @@
     font-weight: bold;
 }
 
+.register-container label {
+    font-weight: bold;
+}
+
 .login-btn {
     display: flex;
     flex-direction: row;
@@ -49,6 +59,17 @@
 }
 
 .login-input2:focus {
+    outline-color: #343a40;
+}
+
+.login-input3 {
+    width: 65%;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+.login-input3:focus {
     outline-color: #343a40;
 }
 
@@ -73,6 +94,27 @@
     cursor: pointer;
 }
 
+.pass-input3 {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 20px 4px 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.pass-input3:focus-within {
+    border: 2px solid #343a40;
+}
+
+.pass-input3 i {
+    font-size: 20px;
+}
+
+.pass-input3 i:hover {
+    cursor: pointer;
+}
+
 .respass-input {
     width: 85%;
     outline: none;
@@ -81,6 +123,10 @@
 
 .btn-width {
     width: 98%
+}
+
+.btn-width2 {
+    width: 100%
 }
 
 .linktoregister {
@@ -95,6 +141,17 @@
 .errormessage1 {
     padding: 5px 0px;
     width: 98%;
+    background-color: red;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.errormessage2 {
+    padding: 5px 10px;
+    width: 100%;
     background-color: red;
     color: white;
     margin-bottom: 30px;
