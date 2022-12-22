@@ -3,101 +3,34 @@ import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './AdminMngRequest.css';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdminMngRequest = () => {
-    // ini nanti diganti pakai axios get, status pending aja
-    const pendingLists = [
-        {
-            postId: 'xuhd272dkwjkfh',
-            foodName: 'Pempek',
-            region: 'South Sumatra',
-            imageUrls: [
-                'https://www.piknikdong.com/wp-content/uploads/2021/02/Cara-Membuat-Pempek.jpg',
-                'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/09/04/4062442039.jpeg',
-                'https://img.okezone.com/content/2020/12/03/298/2321042/resep-pempek-dos-udang-rebon-rasanya-jos-n1FGhLyt0x.jpg'
-            ],
-            description: 'Pempek is a savoury Indonesian fish cake delicacy, made of fish and tapioca, from Palembang, South Sumatra.',
-            status: 'pending'
-        },
-        {
-            postId: 'xsa27dhsj28d',
-            foodName: 'Nasi Pecel Madiun',
-            region: 'East Java',
-            imageUrls: [
-                'https://www.masakapahariini.com/wp-content/uploads/2021/10/Nasi-Pecel-Madiun-780x440.jpg',
-                'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1601776952/t1kycswgiyq3swwipt91.jpg'
-            ],
-            description: 'Nasi pecel is made from rice, vegetables, peanut sauce, and soybeancake.',
-            status: 'pending'
-        },
-        {
-            postId: 'daqjj381qsqad',
-            foodName: 'Batagor',
-            region: 'West Java',
-            imageUrls: [
-                'https://asset.kompas.com/crops/5oHEqFj1cPDLV_wM6ZPUsZ_CCYM=/0x48:1000x715/780x390/data/photo/2020/09/06/5f54c3ebb1d41.jpg',
-                'https://img-global.cpcdn.com/recipes/5da4bf61bcd15f64/1200x630cq70/photo.jpg'
-            ],
-            description: 'Batagor is well known food in Bandung.',
-            status: 'pending'
-        },
-        {
-            postId: 'wqhuwq82u092',
-            foodName: 'Brem',
-            region: 'East Java',
-            imageUrls: [
-                'https://1.bp.blogspot.com/-E240MPw9nIw/Xgq6IAwGhKI/AAAAAAAAC_k/0cbVImZKaK8IsQS08ibCP1b4jL4N2e26wCLcBGAsYHQ/s1600/brem.jpg',
-                'https://jessicabakery.com/wp-content/uploads/2021/12/Resep-Brem-Kue-Kering-Khas-Madiun.jpg'
-            ],
-            description: 'Brem is wellknown snack from Madiun.',
-            status: 'pending'
-        },
-        {
-            postId: 'jaquh937hdd',
-            foodName: 'Cilok',
-            region: 'West Java',
-            imageUrls: [
-                'https://images.tokopedia.net/img/JFrBQq/2022/9/12/8d1dc78d-4aed-40a4-a66d-425e05e6db26.jpg',
-                'https://cdn0-production-images-kly.akamaized.net/nmTqRFdkbW-CU0crWnvdbMTRmE8=/0x0:1807x1018/640x360/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2856068/original/006530100_1563362133-1.jpg'
-            ],
-            description: 'Cilok is well known snack from Sundaneese.',
-            status: 'pending'
-        },
-        {
-            postId: 'uq2h91hdwf3',
-            foodName: 'Bolu Lembang',
-            region: 'West Java',
-            imageUrls: [
-                'https://hargamenu.net/wp-content/uploads/2018/11/Daftar-Harga-Bolu-Susu-Lembang-Terbaru-2018.png',
-                'https://bolulembang.co.id/wp-content/uploads/2021/12/9.-Alpukat-opt.jpg',
-                'https://id-test-11.slatic.net/p/432d1956511dbd5dc881fe21e682ddfd.png'
-            ],
-            description: 'Bolu lembang is cake from Lembang, Bandung.',
-            status: 'pending'
-        },
-        {
-            postId: 'jadnjkdwquoi',
-            foodName: 'Brownis Amanda',
-            region: 'West Java',
-            imageUrls: [
-                'https://amazingsingkawang.com/wp-content/uploads/2019/12/amanda_brownies_singkawang_bolu_kukus-1-1000x540.jpg',
-                'https://media-cdn.yummyadvisor.com/store/cbc0703c-04af-481e-8958-720b01855c55.jpg'
-            ],
-            description: 'Brownis is well known cake for Indonesian people specifically in Java',
-            status: 'pending'
-        },
-        {
-            postId: 'ashqhhwff',
-            foodName: 'Rendang',
-            region: 'West Sumatra',
-            imageUrls: [
-                'https://cdn0-production-images-kly.akamaized.net/YHppKTMNcRz87-cP2Wrg5Ye8mFc=/1x112:1000x675/1200x675/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3245094/original/043061400_1600750232-shutterstock_1786027046.jpg',
-                'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/tips-pasti-jadi-bikin-rendang-pakai-rice-cooker.jpg'
-            ],
-            description: "Rendang is delicious meat that become most of Indonesian people's favorite.",
-            status: 'pending'
-        }
-    ];
+    const [pendingLists, setPendingLists] = useState([]);
+    const [errMessage, setErrMessage] = useState('');
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = user.token;
+
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    useEffect(() => {
+        axios.get(
+            "https://ambojakulinesiaserver.vercel.app/admin/request",
+            // "http://localhost:8000/api/admin/request",
+            config
+        ).then((response) => {
+            const { data } = response.data
+            setPendingLists(data);
+            setErrMessage('');
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
+        })
+    });
 
     const [selectedReq, setSelectedReq] = useState({
         foodName: '',
@@ -148,14 +81,50 @@ const AdminMngRequest = () => {
         })
     };
 
-    // const Urls = selectedReq.imageUrls.slice(1);
-
     const approved = (postId) => {
-        //axios patch ubah status jadi approved
+        axios.patch(
+            "https://ambojakulinesiaserver.vercel.app/admin/request/approve",
+            // "http://localhost:8000/api/admin/request/approve",
+            { postId: postId },
+            config
+        ).then((response) => {
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setErrMessage('');
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
+        })
     };
 
     const reject = (postId) => {
-        //axios patch ubah status jadi reject
+        axios.patch(
+            "https://ambojakulinesiaserver.vercel.app/admin/request/reject",
+            // "http://localhost:8000/api/admin/request/reject",
+            { postId: postId },
+            config
+        ).then((response) => {
+            toast.success(response.data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setErrMessage('');
+        }).catch((error) => {
+            setErrMessage(error.response.data.message);
+        })
     };
 
     return (
@@ -168,6 +137,7 @@ const AdminMngRequest = () => {
                     <h6>There is no request...</h6>
                 </div>
                 <div className='request-body' id='req-available'>
+                    {errMessage && <div className='errormessage2'>{errMessage}</div>}
                     <div className='request-map'>
                         {pendingLists.map((request) => (
                             <div className='cntn-row' key={`id-${request.postId}`}>
@@ -221,6 +191,7 @@ const AdminMngRequest = () => {
 
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 };
