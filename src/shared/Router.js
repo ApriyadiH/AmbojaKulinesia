@@ -15,6 +15,7 @@ import AdminRequest from "../pages/AdminRequest";
 import AdminManage from "../pages/AdminManage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Error404 from "../pages/Error404";
 
 const Router = () => {
   return (
@@ -34,6 +35,7 @@ const Router = () => {
           <Route path="Login" element={<Login />} />
           <Route path="Register" element={<Register />} />
           <Route path="Test" element={<Test />} />
+          <Route path="Error404" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
     </>
