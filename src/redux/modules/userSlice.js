@@ -40,7 +40,20 @@ export const userLogin = createAsyncThunk(
 export const userSlice = createSlice({
     name: "user",
     initialState,
-    reducers: {},
+    reducers: {
+        logout: (state, action) => {
+            state.username = '';
+            state.email = '';
+            state.isAdmin = '';
+            state.isLoggedIn = false;
+        },
+        stillLogin: (state, action) => {
+            state.username = action.payload.username;
+            state.email = action.payload.email;
+            state.isAdmin = action.payload.isAdmin;
+            state.isLoggedIn = true;
+        }
+    },
     extraReducers: {
         [userLogin.pending]: (state) => {
             state.isLoading = true;
@@ -62,4 +75,5 @@ export const userSlice = createSlice({
     }
 });
 
+export const { logout, stillLogin } = userSlice.actions;
 export default userSlice.reducer;
